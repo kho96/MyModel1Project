@@ -1,0 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<!-- footer  -->
+<div class="row">
+	<div class="col-md-12" style="text-align: center; padding: 40px">
+	<hr>
+		<Information>
+			<strong>&copy; 카피라이터입니다.</strong><br> 
+			첫 번째 항목<br>
+			두 번째 항목<br>
+			세 번째 항목<br>
+		</Information>
+	</div>
+</div>  <!-- footer end -->
