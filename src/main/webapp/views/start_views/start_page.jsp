@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>메인 화면</title>
-<%@ include file="../include/boot_cdn.jspf" %>
-<link href="../include/main.css" rel="stylesheet" type="text/css"> 
+<%@ include file="../../include/boot_cdn.jspf" %>
+<link href="../../include/boot_cdn.jspf" rel="stylesheet" type="text/css"> 
 </head>
 <body>
 	<div class="container-fluid">
@@ -24,7 +24,7 @@
 		<div class="col-md-12">
 			<div class="row">
 				<div class="col-md-4" style="text-align: center">
-					<a href="first_page.jsp" class="btn btn-primary">둘러보기</a>
+					<a href="../user_views/main.jsp" class="btn btn-primary">둘러보기</a>
 				</div>
 				<div class="col-md-4" style="text-align: center">
 					<a href="login.jsp" class="btn btn-primary">로그인</a>
@@ -36,7 +36,7 @@
 		</div>
 	</div>  <!-- body end -->
 	
-	<%@ include file="../include/footer.jspf" %>
+	<%@ include file="../../include/footer.jspf" %>
 </div>
 </body>
 </html>
