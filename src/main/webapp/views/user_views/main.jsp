@@ -13,6 +13,7 @@
 		<div class="col-md-12">
 			<h3 class="text-center">
 				우리들의 공부 이야기
+				${list}
 			</h3>
 		</div>
 	</div>
@@ -34,8 +35,8 @@
 	</div>
 	<div class="row">
 		<div class="col-md-3"style="text-align: center; margin-top: 30px">
-			<img alt="배너1" src="../../images/card1.jpg"  style="width: 270px; height: 150px"/><br>
-			<img alt="배너2" src="../../images/card1.jpg"  style="width: 270px; height: 150px"/><br>
+			<img alt="배너1" src="${contextPath}/images/card1.jpg"  style="width: 270px; height: 150px"/><br>
+			<img alt="배너2" src="${contextPath}/images/card1.jpg"  style="width: 270px; height: 150px"/><br>
 			<i>이곳은 배너 광고입니다.</i>
 		</div>
 		<div class="col-md-6" style="margin-top: 30px">
@@ -155,8 +156,8 @@
 					</tr>
 				</tbody>
 			</table>
-			<img alt="배너3" src="../../images/card1.jpg" style="width: 270px; height: 150px"/><br>
-			<img alt="배너4" src="../../images/card1.jpg" style="width: 270px; height: 150px"/><br>
+			<img alt="배너3" src="${contextPath}/images/card1.jpg" style="width: 270px; height: 150px"/><br>
+			<img alt="배너4" src="${contextPath}/images/card1.jpg" style="width: 270px; height: 150px"/><br>
 			<i>이곳은 배너 광고입니다.</i>
 		</div>
 	</div>
