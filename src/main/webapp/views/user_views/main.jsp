@@ -1,5 +1,16 @@
+<%@ page import="dao.UserDao" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<% 
+	UserDao userDao = UserDao.getInstance(); 
+	String user_id = request.getParameter("user_id");
+	String user_pw = request.getParameter("user_pw");
+	boolean result = userDao.checkLogin(user_id, user_pw);
+	if (!result) {
+		session.setAttribute("login_result", "fail");
+		response.sendRedirect("/mymodel1/views/start_views/login.jsp");
+	}
+%>    
 <!DOCTYPE html>
 <html>
 <head>

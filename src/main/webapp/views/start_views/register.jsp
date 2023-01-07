@@ -11,7 +11,7 @@
 </script>
 </head>
 <body>
-		<div class="container-fluid">
+	<div class="container-fluid">
 	<div class="row" style="background-color: gray; padding: 50px">
 		<div class="col-md-12">
 			<h3 class="text-center">
@@ -36,7 +36,7 @@
 									<input type="text" class="form-control" id="userid" name="userid">
 								</div>
 								<div class="col-md-3">
-									<button type="button" class="btn btn-warning ml-5">중복확인</button>
+									<a href="#" class="btn btn-warning ml-5">중복확인</a>
 								</div>	
 							</div>
 						</div>
