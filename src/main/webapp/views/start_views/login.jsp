@@ -10,10 +10,18 @@
 <%@ include file="../../include/boot_cdn.jspf" %>
 <script>
 $(function() {
+	// 로그인 결과(실패)
 	var login_result = "${sessionScope.login_result}";
 	if (login_result == "fail") {
 		alert("로그인 실패");
 		<%session.removeAttribute("login_result");%>
+	}
+	
+	// 회원가입 결과(성공)
+	var regist_result = "${sessionScope.regist_result}";
+	if (regist_result == "success") {
+		alert("가입 완료");
+		<%session.removeAttribute("regist_result");%>
 	}
 });
 </script>

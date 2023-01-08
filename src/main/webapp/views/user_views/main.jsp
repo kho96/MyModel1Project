@@ -9,6 +9,8 @@
 	if (!result) {
 		session.setAttribute("login_result", "fail");
 		response.sendRedirect("/mymodel1/views/start_views/login.jsp");
+	} else {
+		session.setAttribute("login_result", "success");
 	}
 %>    
 <!DOCTYPE html>
@@ -146,24 +148,24 @@
 					<tr>
 						<th>랭킹</th>
 						<th>아이디</th>
-						<th>공부시간</th>
+						<th>총 응원 수</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
 						<td>1</td>
 						<td>studylover</td>
-						<td>47:09</td>
+						<td>45</td>
 					</tr>
 					<tr class="table-active">
 						<td>2</td>
 						<td>oppa423</td>
-						<td>41:56</td>
+						<td>23</td>
 					</tr>
 					<tr class="table-success">
 						<td>3</td>
 						<td>mathgod</td>
-						<td>39:11</td>
+						<td>16</td>
 					</tr>
 				</tbody>
 			</table>

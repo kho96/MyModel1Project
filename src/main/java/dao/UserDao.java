@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import vo.UserVo;
+
 public class UserDao {
 	private static UserDao instance;
 	private final static String URL = "jdbc:mysql://project.cprxrgwyfosf.ap-northeast-2.rds.amazonaws.com:3306/project?serverTimezone=UTC";
@@ -78,4 +80,56 @@ public class UserDao {
 			
 		return false;
 	}
+	
+	// 아이디 중복 확인
+	public boolean checkId(String user_id) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			conn = getConnection();
+			String sql = "select count(*) cnt from tbl_user"
+					+ "	  where user_id = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, user_id);
+			rs= pstmt.executeQuery();
+			if(rs.next()) {
+				int count = rs.getInt("cnt");
+				if (count == 0) {
+					return true;
+				} 
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeAll(conn, pstmt, rs);
+		}
+		return false;
+	}
+	
+	// 회원 가입
+	public boolean register(UserVo userVo) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			conn = getConnection();
+			String sql = "insert into tbl_user set"
+					+ "			user_id = ? , user_pw = ?, user_name = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, userVo.getUser_id());
+			pstmt.setString(2, userVo.getUser_pw());
+			pstmt.setString(3, userVo.getUser_name());
+			int count = pstmt.executeUpdate();
+			if (count > 0) {
+				return true;
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeAll(conn, pstmt, null);
+		}
+		
+		return false;
+	}
+	
 }
