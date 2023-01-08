@@ -1,5 +1,13 @@
+<%@ page import="dao.UserDao" %>
+<%@ page import="dao.BoardDao" %>
+<%@ page import="vo.BoardVo" %>
+<%@ page import="java.util.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<% 
+	BoardDao boardDao = BoardDao.getInstance();
+	List<BoardVo> boardList = boardDao.getList();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +15,7 @@
 <title>스터디 레코드</title>
 </head>
 <%@ include file="../../include/boot_cdn.jspf" %>
+<c:set var="boardList" value="<%=boardList %>"/>
 <script>
 $(function() {
 	
@@ -54,17 +63,33 @@ $(function() {
 			<a href="study_record_form.jsp" class="btn btn-success">
 				등록하기
 			</a>
+			<hr>
 			<table class="table table-bordered">
 				<thead>
 					<tr>
 						<th>#</th>
-						<th>아이디</th>
-						<th>총 공부 시간</th>
+						<th>제목</th>
 						<th>공부한 내용</th>
-					</tr>
+						<th>등록일</th>
+						<th>아이디</th>
+						<th>좋아요</th>
 					</tr>
 				</thead>
 				<tbody>
+					<c:forEach items="${boardList}" var="boardList">
+					<tr>
+						<td>${boardList.bno}</td>
+						<td>
+							<a href="${contextPath}/views/user_views/study_record_detail.jsp?bno=${boardList.bno}">
+							${boardList.title}</a>
+						</td>
+						<td>${boardList.content}</td>
+						<td>${boardList.regdate}</td>
+						<td>${boardList.user_id}</td>
+						<td>${boardList.like_count}</td>
+					</tr>
+					</c:forEach>
+				<!--
 					<tr class="study_tr" data-bno="1">
 						<td>1</td>
 						<td>javaLover</td>
@@ -95,6 +120,7 @@ $(function() {
 						<td>01:46</td>
 						<td>현대음악의 역사 및 이론</td>
 					</tr>
+				-->
 				</tbody>
 			</table>
 		</div>

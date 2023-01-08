@@ -1,11 +1,22 @@
+<%@ page import="dao.UserDao" %>
+<%@ page import="dao.BoardDao" %>
+<%@ page import="vo.BoardVo" %>
+<%@ page import="java.util.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%  
+	int bno = Integer.parseInt(request.getParameter("bno"));
+	BoardDao boardDao = BoardDao.getInstance();
+	
+	BoardVo boardVo = boardDao.getDetail(bno);
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>글 상세 정보</title>
 <%@ include file="../../include/boot_cdn.jspf" %>
+<c:set var="boardVo" value="<%=boardVo %>"/>
 </head>
 <body>
 <div class="container-fluid">
@@ -20,6 +31,7 @@
 		<div class="col-md-2">
 		</div>
 		<div class="col-md-8">
+			${boardVo}
 			<form role="form">
 				<div class="form-group">
 					 
@@ -53,8 +65,10 @@
 				<button type="submit" class="btn btn-primary">
 					수정
 				</button>
-					<a href="study_record.jsp" class="btn btn-danger"> 삭제 </a>
-					<a href="#" class="btn btn-success"> 응원하기 </a>
+				
+				<a href="study_record.jsp" class="btn btn-danger"> 삭제 </a>
+				<a href="#" class="btn btn-success"> 응원하기 </a>
+				<a href="${contextPath}/views/user_views/study_record.jsp" class="btn btn-info"> 돌아가기 </a>
 			</form>
 		</div>
 		<div class="col-md-2">
