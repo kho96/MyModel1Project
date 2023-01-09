@@ -1,5 +1,13 @@
+<%@page import="java.util.ArrayList"%>
+<%@ page import="dao.QADao" %>
+<%@ page import="vo.QAVo" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	QADao dao = QADao.getInstance();
+	ArrayList<QAVo> list = (ArrayList) dao.getList();
+	request.setAttribute("list", list);
+%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,30 +18,20 @@
 $(function() {
 	var isAnswer = "false";
 	$(".tr_QA").click(function() {
-		if(isAnswer == "false") {
-			var isDetail = $(this).attr("data-detail");
-			if(isDetail == "false") {
-				var newTr = "<tr>";
-				newTr += 		"<td>";
-				newTr += 			"작성자";
-				newTr += 		"</td>";
-				newTr += 		"<td colspan='3'>";
-				newTr +=			"질문 제목";
-				newTr += 		"</td>";
-				newTr += "	</tr>";
-				newTr += "	<tr>";
-				newTr += 		"<td colspan='4'>";
-				newTr += 			"<textarea rows='5' cols='30'>질문 내용</textarea>";
-				newTr += 		"</td>";
-				newTr += "	</tr>";
-				$(this).after(newTr);
-				$(this).attr("data-detail", "true");
-			} else if ( $(this).attr("data-detail") == "true") {
-				$(this).next().remove(); // 작성자 제목 지우기
-				$(this).next().remove(); // 질문 내용 지우기
-				$(this).attr("data-detail", "false");
-			}
-		} 
+		console.log("..");
+		var isDetail = $(this).attr("data-detail");
+		if(isDetail == "false") {
+			$(".tr_QA").css("background-color", "#fff");
+			$(this).css("background-color", "#777");
+			$(".tr_QA_detail").slideUp();
+			$(".tr_QA").attr("data-detail", "false");
+			$(this).next().slideDown();
+			$(this).attr("data-detail", "true");
+		} else if(isDetail == "true") {
+			$(this).next().slideUp();
+			$(this).css("background-color", "#fff");
+			$(this).attr("data-detail", "false");
+		}
 		
 	});
 });
@@ -45,7 +43,6 @@ $(function() {
 		<div class="col-md-12">
 			<h3 class="text-center">
 				우리들의 공부 이야기
-				${list}
 			</h3>
 		</div>
 	</div>
@@ -71,33 +68,41 @@ $(function() {
 	<div class="row" style="margin-top: 15px">
 		<div class="col-md-3"></div>
 		<div class="col-md-6">
-			<div style="text-align: right;">
+			<div>
 				<button type="button" class="btn-sm btn-black">작성</button>
 			</div>
 			<table class="table table-sm table-hover pl-3" style="width: 100%; margin-top: 10px; border: solid">
 				<thead>
 					<tr>
-						<th>#</th>
 						<th>제목</th>
 						<th>작성일</th>
 						<th>답변</th>
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="i" begin="1" end="5">
+					<c:forEach items="${list}" var="vo">
 						<tr class="tr_QA" data-detail="false">
-							<td>${i}</td>
-							<td>제목${i}</td>
-							<td>시간${i}</td>
+							<td>${vo.q_title}</td>
+							<td>${vo.q_date}</td>
 							<c:choose>
-								<c:when test="${i eq 4}">
+								<c:when test="${not empty vo.a_answer}">
 									<td>[완료]</td>
 								</c:when>
 								<c:otherwise>
 									<td>[대기중]</td>
 								</c:otherwise>
 							</c:choose>
-							
+						</tr>
+						<tr class="tr_QA_detail" style="display: none">
+							<td colspan="3" style="background-color: #ccc">[문의사항]<br>${vo.q_content}
+							<c:choose>
+								<c:when test="${not empty vo.a_answer}">
+									<hr>
+									[답변] ${vo.a_date}<br>
+									${vo.a_answer }
+								</c:when>
+							</c:choose>
+							</td>
 						</tr>
 					</c:forEach>
 				</tbody>
