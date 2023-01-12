@@ -16,7 +16,17 @@
 <%@ include file="../../include/boot_cdn.jspf" %>
 <script>
 $(function() {
-	var isAnswer = "false";
+	var q_write_result = "${sessionScope.q_write_result}"; /* 문의작성 결과 */
+	var isAnswer = "false"; /* 답변여부 */
+	
+	/* 문의하기 작성결과에 따라 알람창 */
+	if(q_write_result == "success") {
+		alert("작성 성공");
+	} else if (q_write_result == "fail") {
+		alert("작성 실패");
+	}
+	<%session.removeAttribute("q_write_result");%>
+	/* <tr> 클릭, 질문 제목 클릭시  */
 	$(".tr_QA").click(function() {
 		console.log("..");
 		var isDetail = $(this).attr("data-detail");
@@ -34,6 +44,13 @@ $(function() {
 		}
 		
 	});
+	
+	/* 작성 버튼  */
+	$("#btnWrite").click(function() {
+		location.href = "q_write.jsp";
+	});
+	
+	
 });
 </script>
 </head>
@@ -69,7 +86,7 @@ $(function() {
 		<div class="col-md-3"></div>
 		<div class="col-md-6">
 			<div>
-				<button type="button" class="btn-sm btn-black">작성</button>
+				<button id="btnWrite" type="button" class="btn-sm btn-black">작성</button>
 			</div>
 			<table class="table table-sm table-hover pl-3" style="width: 100%; margin-top: 10px; border: solid">
 				<thead>
