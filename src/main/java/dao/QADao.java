@@ -126,5 +126,56 @@ public class QADao {
 		}
 		return false;
 	}
+
+	// 글번호로 QA 조회하기
+	public QAVo getQ(int q_no) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			conn = getConnection();
+			String sql = "select * from tbl_qa"
+					+ "   where q_no = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, q_no);
+			rs= pstmt.executeQuery();
+			if(rs.next()) {
+				String q_title = rs.getString("q_title");
+				String q_content = rs.getString("q_content");
+				String user_id = rs.getString("user_id");
+				Date q_date = rs.getDate("q_date");
+				QAVo vo = new QAVo(q_no, user_id, q_title, q_content, q_date, null, null);
+				return vo;
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeAll(conn, pstmt, rs);
+		}
+		return null;
+	}
 	
+	// 답변하기
+	public boolean answer(int q_no, String a_answer) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			conn = getConnection();
+			String sql = "update tbl_qa set"
+					+ "		 a_answer = ?, a_date = current_timestamp()"
+					+ "	  where q_no = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, a_answer);
+			pstmt.setInt(2, q_no);
+			int count = pstmt.executeUpdate();
+			if (count > 0) {
+				return true;
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeAll(conn, pstmt, null);
+		}
+		return false;
+	}
 }

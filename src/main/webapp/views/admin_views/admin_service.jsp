@@ -12,20 +12,20 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>고객센터</title>
+<title>관리자 페이지</title>
 <%@ include file="../../include/boot_cdn.jspf" %>
 <script>
 $(function() {
-	var q_write_result = "${sessionScope.q_write_result}"; /* 문의작성 결과 */
+	var answer_result = "${sessionScope.answer_result}"; /* 문의작성 결과 */
 	var isAnswer = "false"; /* 답변여부 */
 	
 	/* 문의하기 작성결과에 따라 알람창 */
-	if(q_write_result == "success") {
-		alert("작성 성공");
-	} else if (q_write_result == "fail") {
-		alert("작성 실패");
+	if(answer_result == "success") {
+		alert("답변 성공");
+	} else if (answer_result == "fail") {
+		alert("답변 실패");
 	}
-	<%session.removeAttribute("q_write_result");%>
+	<%session.removeAttribute("answer_result");%>
 	/* <tr> 클릭, 질문 제목 클릭시  */
 	$(".tr_QA").click(function() {
 		console.log("..");
@@ -46,8 +46,9 @@ $(function() {
 	});
 	
 	/* 작성 버튼  */
-	$("#btnWrite").click(function() {
-		location.href = "q_write.jsp";
+	$(".btnAnswer").click(function() {
+		var q_no = $(this).val();
+		location.href = "a_write.jsp?q_no=" + q_no;
 	});
 	
 	
@@ -85,9 +86,6 @@ $(function() {
 	<div class="row" style="margin-top: 15px">
 		<div class="col-md-3"></div>
 		<div class="col-md-6">
-			<div>
-				<button id="btnWrite" type="button" class="btn-sm btn-black">작성</button>
-			</div>
 			<table class="table table-sm table-hover pl-3" style="width: 100%; margin-top: 10px; border: solid">
 				<thead>
 					<tr>
@@ -111,7 +109,7 @@ $(function() {
 									<td>[완료]</td>
 								</c:when>
 								<c:otherwise>
-									<td>[대기중]</td>
+									<td><button class="btnAnswer" type="button" value="${vo.q_no}">답변하기</button></td>
 								</c:otherwise>
 							</c:choose>
 						</tr>
