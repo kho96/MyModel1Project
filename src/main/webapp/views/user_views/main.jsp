@@ -9,7 +9,10 @@
 	if (!result) {
 		session.setAttribute("login_result", "fail");
 		response.sendRedirect("/mymodel1/views/start_views/login.jsp");
-	} else {
+	} else if(result) {
+		if (user_id.equals("admin") && user_pw.equals("1234")) {
+			response.sendRedirect("/mymodel1/views/admin_views/admin_service.jsp");
+		}
 		session.setAttribute("login_result", "success");
 	}
 %>    
