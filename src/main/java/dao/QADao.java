@@ -126,7 +126,7 @@ public class QADao {
 		}
 		return false;
 	}
-	
+
 	// 글번호로 QA 조회하기
 	public QAVo getQ(int q_no) {
 		Connection conn = null;
@@ -178,5 +178,4 @@ public class QADao {
 		}
 		return false;
 	}
-	
 }
