@@ -7,8 +7,36 @@
 <title>메인 화면</title>
 <%@ include file="../../include/boot_cdn.jspf" %>
 <link href="../../include/boot_cdn.jspf" rel="stylesheet" type="text/css"> 
+<link href="../../include/test.css" rel="stylesheet" type="text/css"> 
 </head>
 <body>
+	<!-- header, figure 테스트  -->
+	<header>
+		<div class="inner">
+			<h1><a href="#">OUR.STUDY</a></h1>
+			
+			<ul id="gnb">
+				<li><a href="#">목록 1</a></li>
+				<li><a href="#">목록 2</a></li>
+				<li><a href="#">목록 3</a></li>
+				<li><a href="#">목록 4</a></li>
+				<li><a href="#">목록 5</a></li>
+			</ul>
+			
+			<ul class="util">
+				<li><a href="#">항목 1</a></li>
+				<li><a href="#">항목 2</a></li>
+				<li><a href="#">항목 3</a></li>
+				<li><a href="#">항목 4</a></li>
+				<li><a href="#">항목 5</a></li>
+			</ul>
+		</div>
+	</header>
+	<figure>
+	
+	</figure>
+	
+	
 	<div class="container-fluid">
 	<!-- header -->
 	<div class="row"  style="background-color: gray; padding: 80px">
