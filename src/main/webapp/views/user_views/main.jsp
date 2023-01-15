@@ -12,8 +12,12 @@
 	if (!result) {
 		session.setAttribute("login_result", "fail");
 		response.sendRedirect("/mymodel1/views/start_views/login.jsp");
-	} else {
+	} else if(result) {
+		if (user_id.equals("admin") && user_pw.equals("1234")) {
+			response.sendRedirect("/mymodel1/views/admin_views/admin_service.jsp");
+		}
 		session.setAttribute("login_result", "success");
+		session.setAttribute("login_info", user_id); // 세션에 user_id만 담아놓음
 	}
 	
 	BoardDao boardDao = BoardDao.getInstance();
@@ -41,6 +45,9 @@
 			<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-dark bg-dark static-top">
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="navbar-nav ml-md-auto">
+						<li class="nav-item ">
+							 <a class="nav-link" href="user_service.jsp">고객센터 <span class="sr-only">(current)</span></a>
+						</li>						
 						<li class="nav-item active">
 							 <a class="nav-link" href="myhome.jsp">MyHome <span class="sr-only">(current)</span></a>
 						</li>

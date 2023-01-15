@@ -40,10 +40,8 @@ public class BoardDao {
 
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn = DriverManager.getConnection(URL, USERID, USERPW);
-			System.out.println("연결 성공");
 			return conn;
 		} catch (Exception e) {
-			System.out.println("연결 실패");
 			e.printStackTrace();
 		}
 		return null;
@@ -87,6 +85,7 @@ public class BoardDao {
 		return null;
 	}
 	
+	// 자세히 보기
 	public BoardVo getDetail(int bno) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -114,5 +113,111 @@ public class BoardDao {
 			closeAll(conn, pstmt, rs);
 		}
 		return null;
+	}
+	
+	// 삽입
+	public boolean insert(BoardVo vo) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			conn = getConnection();
+			String sql = "insert into tbl_board(title, content, user_id)"
+					+ "   values(?, ?, ?)";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, vo.getTitle());
+			pstmt.setString(2, vo.getContent());
+			pstmt.setString(3, vo.getUser_id());
+			int count = pstmt.executeUpdate();
+			if (count > 0) return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeAll(conn, pstmt, null);
+		}
+		return false;
+	}
+	
+	// 수정
+	public boolean update(BoardVo vo) {
+		return false;
+	}
+	
+	// 삭제
+	public boolean delete(int bno) {
+		return false;
+	}
+	
+	// 좋아요 추가
+	public boolean insert_like(BoardVo boardVo) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			conn = getConnection();
+			String sql = "insert into tbl_like(bno, user_id)"
+					+ "   values(?, ?)";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, boardVo.getBno());
+			pstmt.setString(2, boardVo.getUser_id());
+			int count = pstmt.executeUpdate();
+			if (count > 0) return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeAll(conn, pstmt, null);
+		}
+		return false;
+	}
+	
+	// 좋아요 중복처리
+	public int update_like(BoardVo boardVo) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int result = 0;
+		try {
+			conn = getConnection();
+			String sql = "update tbl_board";
+			System.out.println("좋아요 갯수 : " + boardVo.getLike_count());
+			if (boardVo.getLike_count() == 0) {
+				sql += "  set like_count = like_count + 1";
+				result = 1; // true = 좋아요 증가
+			} else {
+				sql += "  set like_count = like_count - 1";
+				result = 2; // false = 좋아요 감소
+			}
+			sql += "	  where bno = ?"
+					+ "   and user_id = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, boardVo.getBno());
+			pstmt.setString(2, boardVo.getUser_id());
+			int count = pstmt.executeUpdate();
+			if (count > 0) return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeAll(conn, pstmt, null);
+		}
+		return result;
+	}
+	
+	// 좋아요 삭제
+	public boolean delete_like(BoardVo boardVo) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			conn = getConnection();
+			String sql = "delete from tbl_like"
+					+ "   where bno = ?"
+					+ "   and user_id = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, boardVo.getBno());
+			pstmt.setString(2, boardVo.getUser_id());
+			int count = pstmt.executeUpdate();
+			if (count > 0) return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeAll(conn, pstmt, null);
+		}
+		return false;
 	}
 }
