@@ -17,6 +17,7 @@
 			response.sendRedirect("/mymodel1/views/admin_views/admin_service.jsp");
 		}
 		session.setAttribute("login_result", "success");
+		session.setAttribute("login_info", user_id); // 세션에 user_id만 담아놓음
 	}
 	
 	BoardDao boardDao = BoardDao.getInstance();

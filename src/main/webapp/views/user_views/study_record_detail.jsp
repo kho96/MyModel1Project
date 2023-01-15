@@ -17,6 +17,24 @@
 <title>글 상세 정보</title>
 <%@ include file="../../include/boot_cdn.jspf" %>
 <c:set var="boardVo" value="<%=boardVo %>"/>
+<script>
+$(document).ready(function() {
+	$("#btnLike").click(function(e) {
+		e.preventDefault();
+		console.log("따봉 클릭");
+		sData = { 
+				"command" : "like",
+				"bno" : "${boardVo.bno}",
+				"like_count" : "${boardVo.like_count}"
+		}
+		console.log(sData);
+		url = "study_record_run.jsp";
+		$.post(url, sData, function(rData) {
+			console.log(rData);
+		});
+	});
+});
+</script>
 </head>
 <body>
 <div class="container-fluid">
@@ -67,7 +85,7 @@
 				</button>
 				
 				<a href="study_record.jsp" class="btn btn-danger"> 삭제 </a>
-				<a href="#" class="btn btn-success"> 응원하기 </a>
+				<a href="#" class="btn btn-success" id="btnLike"> 응원하기 </a>
 				<a href="${contextPath}/views/user_views/study_record.jsp" class="btn btn-info"> 돌아가기 </a>
 			</form>
 		</div>

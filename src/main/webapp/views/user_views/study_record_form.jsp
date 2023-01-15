@@ -20,41 +20,34 @@
 		<div class="col-md-2">
 		</div>
 		<div class="col-md-8">
-			<form role="form">
+		
+			<form role="form" method="get" action="study_record_run.jsp">
 				<div class="form-group">
-					 
-					<label for="study_topic">
-						공부 주제
+				
+					<!-- 커맨드 입력 -->
+					<input type="hidden" name="command" value="insert_record">
+					<!-- 세션 -> 유저 아이디 -->
+					<input type="hidden" name="user_id" value="${sessionScope.login_info}">
+					
+					<label for="title">
+						제목
 					</label>
-					<input type="text" class="form-control" id="study_topic" name="study_topic"/>
+					<input type="text" class="form-control" id="title" name="title"/>
 				</div>
 				<div class="form-group">
 					 
-					<label for="study_start_time">
-						공부 시작 시간
-					</label>
-					<input type="time" class="form-control" id="study_start_time" name="study_start_time"/>
-				</div>
-				<div class="form-group">
-					 
-					<label for="study_end_time">
-						공부 종료 시간
-					</label>
-					<input type="time" class="form-control" id="study_end_time" name="study_end_time"/>
-				</div>
-				<div class="form-group">
-					 
-					<label for="study_content">
+					<label for="content">
 						내용
 					</label>
 					<textarea rows="7" cols="30" class="form-control"
-						 id="study_content" name="study_content"></textarea>
+						 id="content" name="content"></textarea>
 				</div>
 				<button type="submit" class="btn btn-primary">
 					등록
 				</button>
-					<a href="study_record.jsp" class="btn btn-danger"> 취소 </a>
+				<a href="study_record.jsp" class="btn btn-danger"> 취소 </a>
 			</form>
+			
 		</div>
 		<div class="col-md-2">
 		</div>
