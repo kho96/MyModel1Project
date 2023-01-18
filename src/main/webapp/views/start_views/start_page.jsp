@@ -33,19 +33,25 @@
 		</div>
 	</header>
 	<figure>
-	
+		<video src="../../video/Pexels Videos 1448735.mp4" autoplay muted loop></video>
+		<div class=inner>
+			<h1>OUR.STUDY.STORY</h1>
+			<p>당신의 자기개발을 저희가 함께하겠습니다. 당신의 기록을 이곳에 남기세요! <br>
+			어떤 곳인지 잘 모르시겠다고요? 그럼 저희 홈페이지를 둘러보세요!!</p>
+			<a href="#">둘러보기</a>
+		</div>
 	</figure>
 	
 	
 	<div class="container-fluid">
 	<!-- header -->
-	<div class="row"  style="background-color: gray; padding: 80px">
+	<!-- <div class="row"  style="background-color: gray; padding: 80px">
 		<div class="col-md-12">
 			<h3 class="text-center">
 				메인 입니다.
 			</h3>
 		</div>
-	</div><!-- header end -->
+	</div> --><!-- header end -->
 	
 	<!-- body -->
 	<div class="row" style="padding-top: 50px">
