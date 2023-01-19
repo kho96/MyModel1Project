@@ -7,7 +7,7 @@
 <title>메인 화면</title>
 <%@ include file="../../include/boot_cdn.jspf" %>
 <link href="../../include/boot_cdn.jspf" rel="stylesheet" type="text/css"> 
-<link href="../../include/test.css" rel="stylesheet" type="text/css"> 
+<link href="../../include/test.css?ver=1" rel="stylesheet" type="text/css"> 
 </head>
 <body>
 	<!-- header, figure 테스트  -->
@@ -38,7 +38,7 @@
 			<h1>OUR.STUDY.STORY</h1>
 			<p>당신의 자기개발을 저희가 함께하겠습니다. 당신의 기록을 이곳에 남기세요! <br>
 			어떤 곳인지 잘 모르시겠다고요? 그럼 저희 홈페이지를 둘러보세요!!</p>
-			<a href="#">둘러보기</a>
+			<a href="../user_views/main.jsp">둘러보기</a>
 		</div>
 	</figure>
 	
@@ -70,7 +70,7 @@
 		</div>
 	</div>  <!-- body end -->
 	
+	</div>
 	<%@ include file="../../include/footer.jspf" %>
-</div>
 </body>
 </html>
