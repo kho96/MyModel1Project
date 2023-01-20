@@ -7,13 +7,13 @@
 <title>메인 화면</title>
 <%@ include file="../../include/boot_cdn.jspf" %>
 <link href="../../include/boot_cdn.jspf" rel="stylesheet" type="text/css"> 
-<link href="../../include/test.css?ver=1" rel="stylesheet" type="text/css"> 
+<link href="../../include/test.css?ver=2" rel="stylesheet" type="text/css"> 
 </head>
 <body>
 	<!-- header, figure 테스트  -->
 	<header>
 		<div class="inner">
-			<h1><a href="#">OUR.STUDY</a></h1>
+			<h1><a href="#">OUR.STUDY.STORY</a></h1>
 			
 			<ul id="gnb">
 				<li><a href="#">목록 1</a></li>
@@ -43,34 +43,45 @@
 	</figure>
 	
 	
-	<div class="container-fluid">
-	<!-- header -->
-	<!-- <div class="row"  style="background-color: gray; padding: 80px">
-		<div class="col-md-12">
-			<h3 class="text-center">
-				메인 입니다.
-			</h3>
-		</div>
-	</div> --><!-- header end -->
 	
-	<!-- body -->
-	<div class="row" style="padding-top: 50px">
-		<div class="col-md-12">
-			<div class="row">
-				<div class="col-md-4" style="text-align: center">
-					<a href="../user_views/main.jsp" class="btn btn-primary">둘러보기</a>
-				</div>
-				<div class="col-md-4" style="text-align: center">
-					<a href="login.jsp" class="btn btn-primary">로그인</a>
-				</div>
-				<div class="col-md-4" style="text-align: center">
-					<a href="register.jsp" class="btn btn-primary">회원가입</a>
-				</div>
+	<!-- section -->
+	<section>
+		<div class="inner">
+			<h1>OUR.STORY</h1>
+			<div class="wrap">
+				<article>
+					<div class="pic">
+						<img src="../../images/card1.jpg" alt="1번쨰 콘텐츠 이미지">
+					</div>
+					<h2><a href="#">매일 공부한 내용을 정리합니다.</a></h2>
+					<p>자신이 배운 공부내용을 정리하여, 계속해서 기록하고, 성장합니다.</p>
+				</article>
+				<article>
+					<div class="pic">
+						<img src="../../images/card1.jpg" alt="2번쨰 콘텐츠 이미지">
+					</div>
+					<h2><a href="#">매일 공부한 내용을 정리합니다.</a></h2>
+					<p>자신이 배운 공부내용을 정리하여, 계속해서 기록하고, 성장합니다.</p>
+				</article>
+				<article>
+					<div class="pic">
+						<img src="../../images/card1.jpg" alt="3번쨰 콘텐츠 이미지">
+					</div>
+					<h2><a href="#">매일 공부한 내용을 정리합니다.</a></h2>
+					<p>자신이 배운 공부내용을 정리하여, 계속해서 기록하고, 성장합니다.</p>
+				</article>
+				<article>
+					<div class="pic">
+						<img src="../../images/card1.jpg" alt="4번쨰 콘텐츠 이미지">
+					</div>
+					<h2><a href="#">매일 공부한 내용을 정리합니다.</a></h2>
+					<p>자신이 배운 공부내용을 정리하여, 계속해서 기록하고, 성장합니다.</p>
+				</article>
 			</div>
 		</div>
-	</div>  <!-- body end -->
+	</section>  
+	<!-- section end -->
 	
-	</div>
 	<%@ include file="../../include/footer.jspf" %>
 </body>
 </html>
