@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>회원가입 화면</title>
 <%@ include file="../../include/boot_cdn.jspf" %>
+<link href="../../include/test.css?ver=2" rel="stylesheet" type="text/css"> 
 <script>
 $(function() {
 	var ableId = ""; // 사용 가능 id
@@ -56,7 +57,19 @@ $(function() {
 </script>
 </head>
 <body>
-	<div class="container-fluid">
+	<!-- header -->
+	<header>
+		<div class="inner">
+			<h1><a href="../start_views/start_page.jsp">OUR.STUDY.STORY</a></h1>
+			
+			<ul id="gnb">
+				<li><a href="register.jsp" style="color: blue;">회원가입</a></li>
+				<li><a href="login.jsp">로그인</a></li>
+			</ul>
+		</div>
+	</header>
+	<!-- header end -->
+	
 	<div class="row" style="background-color: gray; padding: 50px">
 		<div class="col-md-12">
 			<h3 class="text-center">
@@ -64,7 +77,8 @@ $(function() {
 			</h3>
 		</div>
 	</div>
-	<div class="row" style="padding-top: 30px">
+	
+	<div class="row" style="padding: 30px">
 		<div class="col-md-12">
 			<div class="row">
 				<div class="col-md-3">
@@ -81,7 +95,7 @@ $(function() {
 									<input type="text" class="form-control" id="user_id" name="user_id" required >
 								</div>
 								<div class="col-md-3">
-									<button id="btn_idCheck" type="button" class="btn btn-warning ml-5" >중복확인</button>
+									<button id="btn_idCheck" type="button" class="btn btn-warning ml-4" >중복확인</button>
 								</div>	
 							</div>
 						</div>
@@ -102,7 +116,7 @@ $(function() {
 						<button type="submit" class="btn btn-primary">
 							가입
 						</button>
-						<a href="start_page.jsp" class="btn btn-success">메인화면</a>
+						<a href="start_page.jsp" class="btn btn-success">뒤로가기</a>
 						</div>
 					</form>
 				</div>
@@ -113,6 +127,6 @@ $(function() {
 	</div>
 	
 	<%@ include file="../../include/footer.jspf" %>
-</div>
+
 </body>
 </html>

@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>로그인 화면</title>
 <%@ include file="../../include/boot_cdn.jspf" %>
+<link href="../../include/test.css?ver=2" rel="stylesheet" type="text/css">
 <script>
 $(function() {
 	// 로그인 결과(실패)
@@ -27,7 +28,19 @@ $(function() {
 </script>
 </head>
 <body>
-	<div class="container-fluid">
+	<!-- header -->
+	<header>
+		<div class="inner">
+			<h1><a href="../start_views/start_page.jsp">OUR.STUDY.STORY</a></h1>
+			
+			<ul id="gnb">
+				<li><a href="register.jsp"">회원가입</a></li>
+				<li><a href="login.jsp" style="color: blue;">로그인</a></li>
+			</ul>
+		</div>
+	</header>
+	<!-- header end -->
+	
 	<div class="row" style="background-color: gray; padding: 50px">
 		<div class="col-md-12">
 			<h3 class="text-center">
@@ -35,7 +48,7 @@ $(function() {
 			</h3>
 		</div>
 	</div>
-	<div class="row" style="padding-top: 30px">
+	<div class="row" style="padding: 30px">
 		<div class="col-md-12">
 			<div class="row">
 				<div class="col-md-3">
@@ -62,10 +75,10 @@ $(function() {
 						</button>
 						<a href="register.jsp" class="btn btn-success">회원가입</a>
 						</div>
-						<div style="padding-top: 35px ">
+						<!-- <div style="padding-top: 35px ">
 							<a href="#">아이디를 잊으셨나요?</a><br>
 							<a href="#">비밀번호를 잊으셨나요?</a>
-						</div>
+						</div> -->
 					</form>
 				</div>
 				<div class="col-md-3">
@@ -75,6 +88,5 @@ $(function() {
 	</div>
 	
 	<%@ include file="../../include/footer.jspf" %>
-</div>
 </body>
 </html>
