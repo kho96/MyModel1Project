@@ -6,7 +6,8 @@
 <meta charset="UTF-8">
 <title>스터디 클랜 생성</title>
 </head>
-<%@ include file="../../include/boot_cdn.jspf" %>
+<%@ include file="/include/boot_cdn.jspf" %>
+<link href="/include/test.css?ver=2" rel="stylesheet" type="text/css">
 <body>
 <div class="container-fluid">
 	<div class="row" style="padding: 50px">
@@ -50,13 +51,13 @@
 				<button type="submit" class="btn btn-primary">
 					등록
 				</button>
-					<a href="study_clan.jsp" class="btn btn-danger"> 취소 </a>
+					<a href="/views/user_views/study_clan.jsp" class="btn btn-danger"> 취소 </a>
 			</form>
 		</div>
 		<div class="col-md-2">
 		</div>
 	</div>
-	<%@ include file="../../include/footer.jspf" %>
 </div>		
+	<%@ include file="/include/footer.jspf" %>
 </body>
 </html>

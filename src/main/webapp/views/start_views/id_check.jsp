@@ -13,5 +13,5 @@
 	} else {
 		session.setAttribute("checkId", "unable");
 	}
-	response.sendRedirect("register.jsp");
+	response.sendRedirect("/views/start_views/register.jsp");
 %>

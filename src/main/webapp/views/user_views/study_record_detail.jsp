@@ -15,7 +15,8 @@
 <head>
 <meta charset="UTF-8">
 <title>글 상세 정보</title>
-<%@ include file="../../include/boot_cdn.jspf" %>
+<%@ include file="/include/boot_cdn.jspf" %>
+<link href="/include/test.css?ver=2" rel="stylesheet" type="text/css">
 <c:set var="boardVo" value="<%=boardVo %>"/>
 <script>
 $(document).ready(function() {
@@ -29,7 +30,7 @@ $(document).ready(function() {
 		}
 		url = "study_record_run.jsp";
 		$.post(url, sData, function(rData) {
-			location.href = "study_record_detail.jsp?bno=" + bno;
+			location.href = "/views/user_views/study_record_detail.jsp?bno=" + bno;
 		});
 	});
 	
@@ -58,7 +59,7 @@ $(document).ready(function() {
 		<div class="col-md-2">
 		</div>
 		<div class="col-md-8">
-			<form role="form" id="frmUpdate" action="study_record_run.jsp" method="POST">
+			<form role="form" id="frmUpdate" action="/views/user_views/study_record_run.jsp" method="POST">
 				<input type="hidden" name="command" value="update">
 				<input type="hidden" name="bno" value="${boardVo.bno}">
 				<div class="form-group">
@@ -87,17 +88,17 @@ $(document).ready(function() {
 					수정완료
 				</button>
 				
-				<a href="study_record_run.jsp?bno=${boardVo.bno}&command=delete" class="btn btn-danger"> 삭제 </a>
+				<a href="/views/user_views/study_record_run.jsp?bno=${boardVo.bno}&command=delete" class="btn btn-danger"> 삭제 </a>
 				<a href="#" class="btn btn-success" id="btnLike">
 					응원하기<span class="badge badge-danger">${boardVo.like_count}</span>
 				</a>
-				<a href="${contextPath}/views/user_views/study_record.jsp" class="btn btn-info"> 돌아가기 </a>
+				<a href="/views/user_views/study_record.jsp" class="btn btn-info"> 돌아가기 </a>
 			</form>
 		</div>
 		<div class="col-md-2">
 		</div>
 	</div>
-	<%@ include file="../../include/footer.jspf" %>
 </div>		
+	<%@ include file="/include/footer.jspf" %>
 </body>
 </html>

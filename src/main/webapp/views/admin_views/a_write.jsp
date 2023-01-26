@@ -13,14 +13,15 @@
 <head>
 <meta charset="UTF-8">
 <title>관리자 페이지 QA답변</title>
-<%@ include file="../../include/boot_cdn.jspf" %>
+<%@ include file="/include/boot_cdn.jspf" %>
+<link href="/include/test.css?ver=2" rel="stylesheet" type="text/css">
 <script>
 $(function() {
 	/* 돌아가기 버튼 -> 진짜 돌아갈건지 확인창 띄우기 */
 	$("#btnBack").click(function() {
 		var result = confirm("작성을 취소하고 이전 화면으로 이동하시겠습니까?");
 		if (result) {
-			location.href = "admin_service.jsp";
+			location.href = "/views/admin_views/admin_service.jsp";
 		}
 	});
 	
@@ -42,13 +43,13 @@ $(function() {
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="navbar-nav ml-md-auto">
 						<li class="nav-item active">
-							 <a class="nav-link" href="user_service.jsp">고객센터 <span class="sr-only">(current)</span></a>
+							 <a class="nav-link" href="/views/user_views/user_service.jsp">고객센터 <span class="sr-only">(current)</span></a>
 						</li>						
 						<li class="nav-item">
-							 <a class="nav-link" href="myhome.jsp">MyHome <span class="sr-only">(current)</span></a>
+							 <a class="nav-link" href="/views/user_views/myhome.jsp">MyHome <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="main.jsp">로그아웃</a>
+							<a class="nav-link" href="/views/user_views/main.jsp">로그아웃</a>
 						</li>
 					</ul>
 				</div>
@@ -76,7 +77,7 @@ $(function() {
 		</div>
 		<div class="col-md-3"></div>
 	</div>
-	<%@ include file="../../include/footer.jspf" %>
 </div>
+	<%@ include file="/include/footer.jspf" %>
 </body>
 </html>

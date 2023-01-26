@@ -5,7 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>스터디 클랜 상세보기</title>
-<%@ include file="../../include/boot_cdn.jspf" %>
+<%@ include file="/include/boot_cdn.jspf" %>
+<link href="/include/test.css?ver=2" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div class="container-fluid">
@@ -56,7 +57,7 @@
 				<button type="submit" class="btn btn-primary">
 					등록
 				</button>
-					<a href="study_clan.jsp" class="btn btn-danger"> 취소 </a>
+					<a href="/views/user_views/study_clan.jsp" class="btn btn-danger"> 취소 </a>
 					<a href="#" class="btn btn-success"> 신청 </a>
 					<a href="#" class="btn btn-success"> 신청 취소 </a>
 			</form>
@@ -64,7 +65,7 @@
 		<div class="col-md-2">
 		</div>
 	</div>
-	<%@ include file="../../include/footer.jspf" %>
 </div>
+	<%@ include file="/include/footer.jspf" %>
 </body>
 </html>

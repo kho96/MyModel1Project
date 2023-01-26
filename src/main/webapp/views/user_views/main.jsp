@@ -11,10 +11,10 @@
 	boolean result = userDao.checkLogin(user_id, user_pw);
 	if (!result) {
 		session.setAttribute("login_result", "fail");
-		response.sendRedirect("/mymodel1/views/start_views/login.jsp");
+		response.sendRedirect("/views/start_views/login.jsp");
 	} else if(result) {
 		if (user_id.equals("admin") && user_pw.equals("1234")) {
-			response.sendRedirect("/mymodel1/views/admin_views/admin_service.jsp");
+			response.sendRedirect("/views/admin_views/admin_service.jsp");
 		}
 		session.setAttribute("login_result", "success");
 		session.setAttribute("login_info", user_id); // 세션에 user_id만 담아놓음
@@ -28,7 +28,8 @@
 <head>
 <meta charset="UTF-8">
 <title>첫 화면</title>
-<%@ include file="../../include/boot_cdn.jspf" %>
+<%@ include file="/include/boot_cdn.jspf" %>
+<link href="/include/test.css?ver=2" rel="stylesheet" type="text/css">
 <c:set var="boardList" value="<%=boardList %>"/>
 </head>
 <body>
@@ -46,13 +47,13 @@
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="navbar-nav ml-md-auto">
 						<li class="nav-item ">
-							 <a class="nav-link" href="user_service.jsp">고객센터 <span class="sr-only">(current)</span></a>
+							 <a class="nav-link" href="/views/user_views/user_service.jsp">고객센터 <span class="sr-only">(current)</span></a>
 						</li>						
 						<li class="nav-item active">
-							 <a class="nav-link" href="myhome.jsp">MyHome <span class="sr-only">(current)</span></a>
+							 <a class="nav-link" href="/views/user_views/myhome.jsp">MyHome <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="main.jsp">로그아웃</a>
+							<a class="nav-link" href="/views/user_views/main.jsp">로그아웃</a>
 						</li>
 					</ul>
 				</div>
@@ -61,8 +62,8 @@
 	</div>
 	<div class="row">
 		<div class="col-md-3"style="text-align: center; margin-top: 30px">
-			<img alt="배너1" src="${contextPath}/images/card1.jpg"  style="width: 270px; height: 150px"/><br>
-			<img alt="배너2" src="${contextPath}/images/card1.jpg"  style="width: 270px; height: 150px"/><br>
+			<img alt="배너1" src="/images/card1.jpg"  style="width: 270px; height: 150px"/><br>
+			<img alt="배너2" src="/images/card1.jpg"  style="width: 270px; height: 150px"/><br>
 			<i>이곳은 배너 광고입니다.</i>
 		</div>
 		<div class="col-md-6" style="margin-top: 30px">
@@ -175,13 +176,13 @@
 				</tbody>
 			</table>
 			-->
-			<img alt="배너3" src="${contextPath}/images/card1.jpg" style="width: 270px; height: 150px"/><br>
-			<img alt="배너4" src="${contextPath}/images/card1.jpg" style="width: 270px; height: 150px"/><br>
+			<img alt="배너3" src="/images/card1.jpg" style="width: 270px; height: 150px"/><br>
+			<img alt="배너4" src="/images/card1.jpg" style="width: 270px; height: 150px"/><br>
 			<i>이곳은 배너 광고입니다.</i>
 		</div>
 		
 	</div>
-	<%@ include file="../../include/footer.jspf" %>
 </div>
+	<%@ include file="/include/footer.jspf" %>
 </body>
 </html>

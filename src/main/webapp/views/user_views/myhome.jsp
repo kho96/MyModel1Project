@@ -6,7 +6,8 @@
 <meta charset="UTF-8">
 <title>My Home</title>
 </head>
-<%@ include file="../../include/boot_cdn.jspf" %>
+<%@ include file="/include/boot_cdn.jspf" %>
+<link href="/include/test.css?ver=2" rel="stylesheet" type="text/css">
 <body>
 <div class="container-fluid">
 	<div class="row" style="padding: 50px">
@@ -19,7 +20,7 @@
 	<div class="row">
 		<div class="col-md-2">
 			 
-			<a href="../start_views/start_page.jsp" class="btn btn-lg btn-secondary">
+			<a href="/start_page.jsp" class="btn btn-lg btn-secondary">
 				로그아웃
 			</a>
 		</div>
@@ -27,7 +28,7 @@
 		</div>
 		<div class="col-md-1">
 			 
-			<a href="main.jsp" class="btn btn-block btn-lg btn-outline-primary">
+			<a href="/views/user_views/main.jsp" class="btn btn-block btn-lg btn-outline-primary">
 				Main
 			</a>
 		</div>
@@ -206,7 +207,7 @@
 			</div>
 		</div>
 	</div>
-	<%@ include file="../../include/footer.jspf" %>
 </div>
+	<%@ include file="/include/footer.jspf" %>
 </body>
 </html>

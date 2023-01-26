@@ -13,7 +13,9 @@
 <head>
 <meta charset="UTF-8">
 <title>관리자 페이지</title>
-<%@ include file="../../include/boot_cdn.jspf" %>
+<%@ include file="/include/boot_cdn.jspf" %>
+<link href="/include/test.css?ver=2" rel="stylesheet" type="text/css">
+
 <script>
 $(function() {
 	var answer_result = "${sessionScope.answer_result}"; /* 문의작성 결과 */
@@ -48,7 +50,7 @@ $(function() {
 	/* 작성 버튼  */
 	$(".btnAnswer").click(function() {
 		var q_no = $(this).val();
-		location.href = "a_write.jsp?q_no=" + q_no;
+		location.href = "/views/admin_views/a_write.jsp?q_no=" + q_no;
 	});
 	
 	
@@ -70,13 +72,13 @@ $(function() {
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="navbar-nav ml-md-auto">
 						<li class="nav-item active">
-							 <a class="nav-link" href="user_service.jsp">고객센터 <span class="sr-only">(current)</span></a>
+							 <a class="nav-link" href="/views/user_views/user_service.jsp">고객센터 <span class="sr-only">(current)</span></a>
 						</li>						
 						<li class="nav-item">
-							 <a class="nav-link" href="myhome.jsp">MyHome <span class="sr-only">(current)</span></a>
+							 <a class="nav-link" href="/views/user_views/myhome.jsp">MyHome <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="main.jsp">로그아웃</a>
+							<a class="nav-link" href="/views/user_views/main.jsp">로그아웃</a>
 						</li>
 					</ul>
 				</div>
@@ -130,7 +132,7 @@ $(function() {
 		</div>
 		<div class="col-md-3"></div>
 	</div>
-	<%@ include file="../../include/footer.jspf" %>
 </div>
+	<%@ include file="/include/footer.jspf" %>
 </body>
 </html>

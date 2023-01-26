@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입 화면</title>
-<%@ include file="../../include/boot_cdn.jspf" %>
-<link href="../../include/test.css?ver=2" rel="stylesheet" type="text/css"> 
+<%@ include file="/include/boot_cdn.jspf" %>
+<link href="/include/test.css?ver=2" rel="stylesheet" type="text/css"> 
 <script>
 $(function() {
 	var ableId = ""; // 사용 가능 id
@@ -60,11 +60,11 @@ $(function() {
 	<!-- header -->
 	<header>
 		<div class="inner">
-			<h1><a href="../start_views/start_page.jsp">OUR.STUDY.STORY</a></h1>
+			<h1><a href="/start_page.jsp">OUR.STUDY.STORY</a></h1>
 			
 			<ul id="gnb">
-				<li><a href="register.jsp" style="color: blue;">회원가입</a></li>
-				<li><a href="login.jsp">로그인</a></li>
+				<li><a href="/views/start_views/register.jsp" style="color: blue;">회원가입</a></li>
+				<li><a href="/views/start_views/login.jsp">로그인</a></li>
 			</ul>
 		</div>
 	</header>
@@ -84,7 +84,7 @@ $(function() {
 				<div class="col-md-3">
 				</div>
 				<div class="col-md-6">
-					<form role="form" action="regist_run.jsp" method="post">
+					<form role="form" action="/views/start_views/regist_run.jsp" method="post">
 						<div class="form-group">
 							 
 							<label for="user_id">
@@ -116,7 +116,7 @@ $(function() {
 						<button type="submit" class="btn btn-primary">
 							가입
 						</button>
-						<a href="start_page.jsp" class="btn btn-success">뒤로가기</a>
+						<a href="/start_page.jsp" class="btn btn-success">뒤로가기</a>
 						</div>
 					</form>
 				</div>
@@ -126,7 +126,7 @@ $(function() {
 		</div>
 	</div>
 	
-	<%@ include file="../../include/footer.jspf" %>
+	<%@ include file="/include/footer.jspf" %>
 
 </body>
 </html>

@@ -5,7 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>공부기록하기</title>
-<%@ include file="../../include/boot_cdn.jspf" %>
+<%@ include file="/include/boot_cdn.jspf" %>
+<link href="/include/test.css?ver=2" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div class="container-fluid">
@@ -21,7 +22,7 @@
 		</div>
 		<div class="col-md-8">
 		
-			<form role="form" method="get" action="study_record_run.jsp">
+			<form role="form" method="get" action="/views/user_views/study_record_run.jsp">
 				<div class="form-group">
 				
 					<!-- 커맨드 입력 -->
@@ -45,14 +46,14 @@
 				<button type="submit" class="btn btn-primary">
 					등록
 				</button>
-				<a href="study_record.jsp" class="btn btn-danger"> 취소 </a>
+				<a href="/views/user_views/study_record.jsp" class="btn btn-danger"> 취소 </a>
 			</form>
 			
 		</div>
 		<div class="col-md-2">
 		</div>
 	</div>
-	<%@ include file="../../include/footer.jspf" %>
 </div>		
+	<%@ include file="/include/footer.jspf" %>
 </body>
 </html>

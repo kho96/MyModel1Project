@@ -5,14 +5,15 @@
 <head>
 <meta charset="UTF-8">
 <title>스터디 모집</title>
-<%@ include file="../../include/boot_cdn.jspf" %>
+<%@ include file="/include/boot_cdn.jspf" %>
+<link href="/include/test.css?ver=2" rel="stylesheet" type="text/css">
 <script>
 $(function() {
 	
 	// 테이블의 글을 선택했을 경우
 	$(".clan_tr").click(function() {
 		var bno = $(this).attr("data-clan_no"); // 클랜 번호 얻기
-		location.href="${contextPath}/views/user_views/study_clan_detail.jsp";
+		location.href="/views/user_views/study_clan_detail.jsp";
 	});	
 	
 });
@@ -30,25 +31,25 @@ $(function() {
 	<div class="row">
 		<div class="col-md-1">
 			 
-			<a href="../start_views/start_page.jsp" class="btn btn-block btn-lg btn-secondary">
+			<a href="/start_page.jsp" class="btn btn-block btn-lg btn-secondary">
 				로그아웃
 			</a>
 		</div>
 		<div class="col-md-10"></div>
 		<div class="col-md-1">
 			 
-			<a href="main.jsp" class="btn btn-sm btn-block btn-outline-primary">
+			<a href="/views/user_views/main.jsp" class="btn btn-sm btn-block btn-outline-primary">
 				Main
 			</a> 
-			<a href="myhome.jsp" class="btn btn-sm btn-block btn-outline-primary">
+			<a href="/views/user_views/myhome.jsp" class="btn btn-sm btn-block btn-outline-primary">
 				MyHome
 			</a>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-3"style="text-align: center; margin-top: 30px">
-			<img alt="배너1" src="../../images/card1.jpg"  style="width: 270px; height: 150px"/><br>
-			<img alt="배너2" src="../../images/card1.jpg"  style="width: 270px; height: 150px"/><br>
+			<img alt="배너1" src="/images/card1.jpg"  style="width: 270px; height: 150px"/><br>
+			<img alt="배너2" src="/images/card1.jpg"  style="width: 270px; height: 150px"/><br>
 			<i>이곳은 배너 광고입니다.</i>
 		</div>
 		<div class="col-md-6">
@@ -99,12 +100,12 @@ $(function() {
 			</table>
 		</div>
 		<div class="col-md-3"style="text-align: center; margin-top: 30px">
-			<img alt="배너1" src="../../images/card1.jpg"  style="width: 270px; height: 150px"/><br>
-			<img alt="배너2" src="../../images/card1.jpg"  style="width: 270px; height: 150px"/><br>
+			<img alt="배너1" src="/images/card1.jpg"  style="width: 270px; height: 150px"/><br>
+			<img alt="배너2" src="/images/card1.jpg"  style="width: 270px; height: 150px"/><br>
 			<i>이곳은 배너 광고입니다.</i>
 		</div>
 	</div>
-	<%@ include file="../../include/footer.jspf" %>
 </div>			
+	<%@ include file="/include/footer.jspf" %>
 </body>
 </html>

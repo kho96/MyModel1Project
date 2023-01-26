@@ -9,9 +9,9 @@
 	
 	boolean result = dao.answer(q_no, a_answer);
 	if (result) {
-		session.setAttribute("answer_result", "success");
+		session.setAttribute("/views/admin_views/answer_result", "success");
 	} else {
-		session.setAttribute("answer_result", "fail");
+		session.setAttribute("/views/admin_views/answer_result", "fail");
 	}
-	response.sendRedirect("admin_service.jsp");
+	response.sendRedirect("/views/admin_views/admin_service.jsp");
 %>

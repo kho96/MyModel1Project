@@ -14,7 +14,8 @@
 <meta charset="UTF-8">
 <title>스터디 레코드</title>
 </head>
-<%@ include file="../../include/boot_cdn.jspf" %>
+<%@ include file="/include/boot_cdn.jspf" %>
+<link href="/include/test.css?ver=2" rel="stylesheet" type="text/css">
 <c:set var="boardList" value="<%=boardList %>"/>
 <script>
 $(function() {
@@ -22,7 +23,7 @@ $(function() {
 	// 테이블의 글을 선택했을 경우
 	$(".study_tr").click(function() {
 		var bno = $(this).attr("data-bno"); // 글 번호 얻기
-		location.href="${contextPath}/views/user_views/study_record_detail.jsp";
+		location.href="/views/user_views/study_record_detail.jsp";
 	});	
 });
 </script>
@@ -38,29 +39,29 @@ $(function() {
 	<div class="row">
 		<div class="col-md-1">
 			 
-			<a href="../start_views/start_page.jsp" class="btn btn-block btn-lg btn-secondary">
+			<a href="/start_page.jsp" class="btn btn-block btn-lg btn-secondary">
 				로그아웃
 			</a>
 		</div>
 		<div class="col-md-10"></div>
 		<div class="col-md-1">
-			<a href="main.jsp" class="btn btn-sm btn-block btn-outline-primary">
+			<a href="/views/user_views/main.jsp" class="btn btn-sm btn-block btn-outline-primary">
 				Main
 			</a> 
-			<a href="myhome.jsp" class="btn btn-sm btn-block btn-outline-primary">
+			<a href="/views/user_views/myhome.jsp" class="btn btn-sm btn-block btn-outline-primary">
 				MyHome
 			</a>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-3"style="text-align: center; margin-top: 30px">
-			<img alt="배너1" src="../../images/card1.jpg"  style="width: 270px; height: 150px"/><br>
-			<img alt="배너2" src="../../images/card1.jpg"  style="width: 270px; height: 150px"/><br>
+			<img alt="배너1" src="/images/card1.jpg"  style="width: 270px; height: 150px"/><br>
+			<img alt="배너2" src="/images/card1.jpg"  style="width: 270px; height: 150px"/><br>
 			<i>이곳은 배너 광고입니다.</i>
 		</div>
 		<div class="col-md-6">
 			 
-			<a href="study_record_form.jsp" class="btn btn-success">
+			<a href="/views/user_views/study_record_form.jsp" class="btn btn-success">
 				등록하기
 			</a>
 			<hr>
@@ -80,7 +81,7 @@ $(function() {
 					<tr>
 						<td>${boardList.bno}</td>
 						<td>
-							<a href="${contextPath}/views/user_views/study_record_detail.jsp?bno=${boardList.bno}">
+							<a href="/views/user_views/study_record_detail.jsp?bno=${boardList.bno}">
 							${boardList.title}</a>
 						</td>
 						<td>${boardList.content}</td>
@@ -93,12 +94,12 @@ $(function() {
 			</table>
 		</div>
 		<div class="col-md-3"style="text-align: center; margin-top: 30px">
-			<img alt="배너1" src="../../images/card1.jpg"  style="width: 270px; height: 150px"/><br>
-			<img alt="배너2" src="../../images/card1.jpg"  style="width: 270px; height: 150px"/><br>
+			<img alt="배너1" src="/images/card1.jpg"  style="width: 270px; height: 150px"/><br>
+			<img alt="배너2" src="/images/card1.jpg"  style="width: 270px; height: 150px"/><br>
 			<i>이곳은 배너 광고입니다.</i>
 		</div>
 	</div>
-	<%@ include file="../../include/footer.jspf" %>
 </div>		
+	<%@ include file="/include/footer.jspf" %>
 </body>
 </html>
