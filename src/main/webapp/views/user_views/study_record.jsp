@@ -68,7 +68,7 @@ $(function() {
 				<thead>
 					<tr>
 						<th>#</th>
-						<th>제목</th>
+						<th style="width: 100px">제목</th>
 						<th>공부한 내용</th>
 						<th>등록일</th>
 						<th>아이디</th>
@@ -89,38 +89,6 @@ $(function() {
 						<td>${boardList.like_count}</td>
 					</tr>
 					</c:forEach>
-				<!--
-					<tr class="study_tr" data-bno="1">
-						<td>1</td>
-						<td>javaLover</td>
-						<td>02:47</td>
-						<td>java 공부</td>
-					</tr>
-					<tr class="table-active study_tr" data-bno="2">
-						<td>2</td>
-						<td>helloworld</td>
-						<td>07:19</td>
-						<td>java spring & api</td>
-					</tr>
-					<tr class="table-success">
-						<td>3</td>
-						<td>mathgod</td>
-						<td>11:09</td>
-						<td>선형대수학</td>
-					</tr>
-					<tr class="table-warning">
-						<td>4</td>
-						<td>gonsisang</td>
-						<td>17:46</td>
-						<td>교육행정 및 일반행정</td>
-					</tr>
-					<tr class="table-danger">
-						<td>5</td>
-						<td>Tomboy</td>
-						<td>01:46</td>
-						<td>현대음악의 역사 및 이론</td>
-					</tr>
-				-->
 				</tbody>
 			</table>
 		</div>

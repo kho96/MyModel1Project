@@ -19,18 +19,27 @@
 <c:set var="boardVo" value="<%=boardVo %>"/>
 <script>
 $(document).ready(function() {
+	var bno = "${boardVo.bno}";
 	$("#btnLike").click(function(e) {
 		e.preventDefault();
-		console.log("따봉 클릭");
 		sData = { 
 				"command" : "like",
 				"bno" : "${boardVo.bno}",
 				"like_count" : "${boardVo.like_count}"
 		}
-		console.log(sData);
 		url = "study_record_run.jsp";
 		$.post(url, sData, function(rData) {
-			console.log(rData);
+			location.href = "study_record_detail.jsp?bno=" + bno;
+		});
+	});
+	
+	$("#btnUpdate").click(function() {
+		$(this).fadeOut(500);
+		$("#btnUpdateRun").fadeIn(500);
+		$("#title").attr("disabled", false);
+		$("#content").attr("disabled", false);
+		$("#btnUpdateRun").click(function() {
+			$("#frmUpdate").submit();
 		});
 	});
 });
@@ -49,43 +58,39 @@ $(document).ready(function() {
 		<div class="col-md-2">
 		</div>
 		<div class="col-md-8">
-			${boardVo}
-			<form role="form">
+			<form role="form" id="frmUpdate" action="study_record_run.jsp" method="POST">
+				<input type="hidden" name="command" value="update">
+				<input type="hidden" name="bno" value="${boardVo.bno}">
 				<div class="form-group">
-					 
 					<label for="study_topic">
 						아이디
 					</label>
-					<input type="text" class="form-control" id="study_topic" name="study_topic"/>
+					<input type="text" class="form-control" id="user_id" name="user_id" value="${boardVo.user_id}" disabled/>
 				</div>
 				<div class="form-group">
-					 
-					<label for="study_time">
-						공부 시간
-					</label>
-					<input type="text" class="form-control" id="study_time" name="study_time"/>
-				</div>
-				<div class="form-group">
-					 
 					<label for="study_topic">
 						공부 주제
 					</label>
-					<input type="text" class="form-control" id="study_topic" name="study_topic"/>
+					<input type="text" class="form-control" id="title" name="title" value="${boardVo.title}" disabled/>
 				</div>
 				<div class="form-group">
-					 
 					<label for="study_content">
 						공부 내용
 					</label>
 					<textarea rows="7" cols="30" class="form-control"
-						 id="study_content" name="study_content"></textarea>
+						 id="content" name="content" disabled>${boardVo.content}</textarea>
 				</div>
-				<button type="submit" class="btn btn-primary">
+				<button type="button" class="btn btn-primary" id="btnUpdate">
 					수정
 				</button>
+				<button type="button" class="btn btn-success" id="btnUpdateRun" style="display: none;">
+					수정완료
+				</button>
 				
-				<a href="study_record.jsp" class="btn btn-danger"> 삭제 </a>
-				<a href="#" class="btn btn-success" id="btnLike"> 응원하기 </a>
+				<a href="study_record_run.jsp?bno=${boardVo.bno}&command=delete" class="btn btn-danger"> 삭제 </a>
+				<a href="#" class="btn btn-success" id="btnLike">
+					응원하기<span class="badge badge-danger">${boardVo.like_count}</span>
+				</a>
 				<a href="${contextPath}/views/user_views/study_record.jsp" class="btn btn-info"> 돌아가기 </a>
 			</form>
 		</div>

@@ -139,11 +139,45 @@ public class BoardDao {
 	
 	// 수정
 	public boolean update(BoardVo vo) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			conn = getConnection();
+			String sql = "update tbl_board set"
+					+ "		title = ?,"
+					+ "		content = ?"
+					+ "   where bno = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, vo.getTitle());
+			pstmt.setString(2, vo.getContent());
+			pstmt.setInt(3, vo.getBno());
+			int count = pstmt.executeUpdate();
+			if (count > 0) return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeAll(conn, pstmt, null);
+		}
 		return false;
 	}
 	
 	// 삭제
 	public boolean delete(int bno) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			conn = getConnection();
+			String sql = "delete from tbl_board"
+					+ "   where bno = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bno);
+			int count = pstmt.executeUpdate();
+			if (count > 0) return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeAll(conn, pstmt, null);
+		}
 		return false;
 	}
 	
