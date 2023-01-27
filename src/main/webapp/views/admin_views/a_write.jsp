@@ -14,7 +14,6 @@
 <meta charset="UTF-8">
 <title>관리자 페이지 QA답변</title>
 <%@ include file="/include/boot_cdn.jspf" %>
-<link href="/include/test.css?ver=2" rel="stylesheet" type="text/css">
 <script>
 $(function() {
 	/* 돌아가기 버튼 -> 진짜 돌아갈건지 확인창 띄우기 */

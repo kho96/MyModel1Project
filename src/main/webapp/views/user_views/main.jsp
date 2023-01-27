@@ -8,16 +8,19 @@
 	UserDao userDao = UserDao.getInstance(); 
 	String user_id = request.getParameter("user_id");
 	String user_pw = request.getParameter("user_pw");
-	boolean result = userDao.checkLogin(user_id, user_pw);
-	if (!result) {
-		session.setAttribute("login_result", "fail");
-		response.sendRedirect("/views/start_views/login.jsp");
-	} else if(result) {
-		if (user_id.equals("admin") && user_pw.equals("1234")) {
-			response.sendRedirect("/views/admin_views/admin_service.jsp");
+	if (user_id != null && user_pw != null) {
+		boolean result = userDao.checkLogin(user_id, user_pw);
+		if (!result) {
+			session.setAttribute("login_result", "fail");
+			response.sendRedirect("/views/start_views/login.jsp");
+		} else if(result) {
+			if (user_id.equals("admin") && user_pw.equals("1234")) {
+				response.sendRedirect("/views/admin_views/admin_service.jsp");
+				return;
+			}
+			session.setAttribute("login_result", "success");
+			session.setAttribute("login_info", user_id); // 세션에 user_id만 담아놓음
 		}
-		session.setAttribute("login_result", "success");
-		session.setAttribute("login_info", user_id); // 세션에 user_id만 담아놓음
 	}
 	
 	BoardDao boardDao = BoardDao.getInstance();
@@ -28,54 +31,36 @@
 <head>
 <meta charset="UTF-8">
 <title>첫 화면</title>
+<style>
+.container-fluid {
+	min-height: 100%;
+	height: auto;
+	padding-bottom: 300px;
+}
+</style>
 <%@ include file="/include/boot_cdn.jspf" %>
 <link href="/include/test.css?ver=2" rel="stylesheet" type="text/css">
 <c:set var="boardList" value="<%=boardList %>"/>
+<script>
+</script>
 </head>
 <body>
+<%@ include file="/include/header.jspf" %>
 <div class="container-fluid">
-	<div class="row" style="padding: 50px">
-		<div class="col-md-12">
-			<h3 class="text-center">
-				우리들의 공부 이야기
-			</h3>
-		</div>
-	</div>
 	<div class="row">
-		<div class="col-md-12">
-			<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-dark bg-dark static-top">
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="navbar-nav ml-md-auto">
-						<li class="nav-item ">
-							 <a class="nav-link" href="/views/user_views/user_service.jsp">고객센터 <span class="sr-only">(current)</span></a>
-						</li>						
-						<li class="nav-item active">
-							 <a class="nav-link" href="/views/user_views/myhome.jsp">MyHome <span class="sr-only">(current)</span></a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="/views/user_views/main.jsp">로그아웃</a>
-						</li>
-					</ul>
-				</div>
-			</nav>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-3"style="text-align: center; margin-top: 30px">
-			<img alt="배너1" src="/images/card1.jpg"  style="width: 270px; height: 150px"/><br>
-			<img alt="배너2" src="/images/card1.jpg"  style="width: 270px; height: 150px"/><br>
-			<i>이곳은 배너 광고입니다.</i>
-		</div>
-		<div class="col-md-6" style="margin-top: 30px">
-		
+		<div class="col-md-2" style="margin-top: 30px"></div>
+		<div class="col-md-8" style="margin-top: 30px">
 			<!-- 게시판 시작 -->
-			<div><h6>공부 기록<a class="btn btn-primary" href="study_record.jsp" style="margin-left: 50px">더보기</a></h6></div>
+			<div style="height: 50px;">
+				<div style="float: left"><b>공부 기록</b></div>
+				<div style="float: right;"><a class="btn btn-primary" href="study_record.jsp" style="margin-left: 50px">더보기</a></div>
+			</div>
 			<table class="table table-sm table-hover table-striped">
 				<thead>
 					<tr>
 						<th>#</th>
 						<th>제목</th>
-						<th>공부한 내용</th>
+						<!-- <th>공부한 내용</th> -->
 						<th>등록일</th>
 						<th>아이디</th>
 						<th>좋아요</th>
@@ -86,7 +71,7 @@
 					<tr>
 						<td>${boardList.bno}</td>
 						<td>${boardList.title}</td>
-						<td>${boardList.content}</td>
+						<%-- <td>${boardList.content}</td> --%>
 						<td>${boardList.regdate}</td>
 						<td>${boardList.user_id}</td>
 						<td>${boardList.like_count}</td>
@@ -145,8 +130,8 @@
 			</table>
 			-->
 		</div>
-
-		<div class="col-md-3" style="text-align: center;  margin-top: 30px">
+		<div class="col-md-2" style="margin-top: 30px"></div>
+		<!-- <div class="col-md-3" style="text-align: center;  margin-top: 30px"> -->
 			<!--
 			<div><strong>금주 랭킹</strong></div>
 			<table class="table table-sm table-hover pl-3" style="width: 80%; margin-left: 30px; border: solid">
@@ -176,10 +161,7 @@
 				</tbody>
 			</table>
 			-->
-			<img alt="배너3" src="/images/card1.jpg" style="width: 270px; height: 150px"/><br>
-			<img alt="배너4" src="/images/card1.jpg" style="width: 270px; height: 150px"/><br>
-			<i>이곳은 배너 광고입니다.</i>
-		</div>
+		<!-- </div> -->
 		
 	</div>
 </div>

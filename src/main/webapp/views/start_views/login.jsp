@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>로그인 화면</title>
 <%@ include file="/include/boot_cdn.jspf" %>
-<link href="/include/test.css?ver=2" rel="stylesheet" type="text/css">
+
 <script>
 $(function() {
 	// 로그인 결과(실패)
@@ -28,18 +28,7 @@ $(function() {
 </script>
 </head>
 <body>
-	<!-- header -->
-	<header>
-		<div class="inner">
-			<h1><a href="/start_page.jsp">OUR.STUDY.STORY</a></h1>
-			
-			<ul id="gnb">
-				<li><a href="/views/start_views/register.jsp">회원가입</a></li>
-				<li><a href="/views/start_views/login.jsp" style="color: blue;">로그인</a></li>
-			</ul>
-		</div>
-	</header>
-	<!-- header end -->
+	<%@ include file="/include/header.jspf" %>
 	
 	<div class="row" style="background-color: gray; padding: 50px">
 		<div class="col-md-12">

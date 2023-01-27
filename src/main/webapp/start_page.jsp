@@ -6,25 +6,11 @@
 <meta charset="UTF-8">
 <title>메인 화면</title>
 <%@ include file="include/boot_cdn.jspf" %>
-<link href="include/boot_cdn.jspf" rel="stylesheet" type="text/css"> 
-<link href="include/test.css?ver=2" rel="stylesheet" type="text/css"> 
-<script>
-$(function) {
-}
-</script>
 </head>
 <body>
-	<!-- header, figure 테스트  -->
-	<header>
-		<div class="inner">
-			<h1><a href="start_page.jsp">OUR.STUDY.STORY</a></h1>
-			
-			<ul id="gnb">
-				<li><a href="views/start_views/register.jsp">회원가입</a></li>
-				<li><a href="views/start_views/login.jsp">로그인</a></li>
-			</ul>
-		</div>
-	</header>
+	<%@ include file="/include/header.jspf" %>
+	
+	<div class="wrapper"><!-- wrapper  -->
 	<figure>
 		<video src="video/Pexels Videos 1448735.mp4" autoplay muted loop></video>
 		<div class=inner>
@@ -34,8 +20,6 @@ $(function) {
 			<a href="views/user_views/main.jsp">둘러보기</a>
 		</div>
 	</figure>
-	
-	
 	
 	<!-- section -->
 	<section>
@@ -74,6 +58,7 @@ $(function) {
 		</div>
 	</section>  
 	<!-- section end -->
+	</div> <!-- wrapper -->
 	
 	<%@ include file="include/footer.jspf" %>
 </body>

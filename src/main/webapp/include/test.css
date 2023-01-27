@@ -202,7 +202,12 @@ section .inner .wrap article .pic img {
 	height: 100%;
 }
 
-
+/* wrapper  */
+#wrapper {
+	height: auto;
+ 	min-height: 100%;
+  	padding-bottom: 500px;
+}
 
 /* footer */
 
@@ -211,6 +216,7 @@ footer {
 	background: #333;
 	padding: 100px 0px;
 	border-top: 1px solid #888;
+	
 }
 
 footer .inner {

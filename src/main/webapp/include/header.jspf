@@ -1,0 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<header>
+	<div class="inner">
+		<h1><a href="/start_page.jsp">OUR.STUDY.STORY</a></h1>
+		
+		<ul id="gnb">
+			<c:choose>
+				<c:when test="${login_info eq null}">
+					<li><a href="/views/start_views/register.jsp">회원가입</a></li>
+					<li><a href="/views/start_views/login.jsp">로그인</a>
+				</c:when>
+				<c:otherwise>
+					<li><a href="/views/user_views/user_service.jsp">고객센터</a></li>
+					<li><a href="#" onclick="logout();">로그아웃</a>
+				</c:otherwise>
+			</c:choose>
+			</li>
+		</ul>
+	</div>
+</header>
