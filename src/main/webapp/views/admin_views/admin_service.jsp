@@ -14,7 +14,7 @@
 <meta charset="UTF-8">
 <title>관리자 페이지</title>
 <%@ include file="/include/boot_cdn.jspf" %>
-<link href="/include/test.css?ver=2" rel="stylesheet" type="text/css">
+
 
 <script>
 $(function() {
@@ -58,6 +58,7 @@ $(function() {
 </script>
 </head>
 <body>
+<%@ include file="/include/header.jspf" %>
 <div class="container-fluid">
 	<div class="row" style="padding: 50px">
 		<div class="col-md-12">

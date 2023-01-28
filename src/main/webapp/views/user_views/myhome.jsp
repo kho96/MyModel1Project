@@ -1,5 +1,14 @@
+<%@ page import="dao.BoardDao" %>
+<%@ page import="vo.BoardVo" %>
+<%@ page import="java.util.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<% 
+	BoardDao dao = BoardDao.getInstance();
+	String user_id = (String)session.getAttribute("login_info");
+	List<BoardVo> boardList = dao.getListById(user_id);
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,10 +16,10 @@
 <title>My Home</title>
 </head>
 <%@ include file="/include/boot_cdn.jspf" %>
-<link href="/include/test.css?ver=2" rel="stylesheet" type="text/css">
 <body>
+<%@ include file="/include/header.jspf" %>
 <div class="container-fluid">
-	<div class="row" style="padding: 50px">
+	<!-- <div class="row" style="padding: 50px">
 		<div class="col-md-12">
 			<h3 class="text-center">
 				나의 정보
@@ -32,9 +41,9 @@
 				Main
 			</a>
 		</div>
-	</div>
-	<div class="row" style="margin-top: 50px">
-		<div class="col-md-4">
+	</div> -->
+	<!-- <div class="row" style="margin-top: 50px"> -->
+		<!-- <div class="col-md-4">
 			<h3 class="text-muted">
 				가입된 스터디 클랜
 			</h3>
@@ -68,8 +77,8 @@
 					</tr>
 				</tbody>
 			</table>
-		</div>
-		<div class="col-md-4">
+		</div> -->
+		<%-- <div class="col-md-4">
 			<h3>
 				주간 공부량 
 			</h3>
@@ -143,12 +152,68 @@
 				
 			</table>
 		</div>
+	</div> --%>
+	<%-- <div class="col-md-6">
+		<div  style="text-align: center">
+		<h3>
+			2023 월간 공부량
+		</h3>
+		</div>
+		<table class="table" style="text-align: center">
+			<thead>
+				<tr>
+					<th>월</th>
+					<th>공부량</th>
+					<th>월</th>
+					<th>공부량</th>
+				</tr>
+			</thead>
+			<%
+				for(int i = 1; i <= 6; i++) {
+			%>		
+			<tbody>
+				<td><%=i %>월</td>
+				<td>0</td>
+				<td><%=i+6 %>월</td>
+				<td>0</td>
+			</tbody>	
+			<% } %>
+			
+		</table>
 	</div>
-	<hr>
+	<div class="col-md-6">
+		<div  style="text-align: center">
+		<h3>
+			1월 주간 공부량
+		</h3>
+		</div>
+		<table class="table" style="text-align: center">
+			<thead>
+				<tr>
+					<th>주</th>
+					<th>공부량</th>
+					<th>월</th>
+					<th>공부량</th>
+				</tr>
+			</thead>
+			<%
+				for(int i = 1; i <= 6; i++) {
+			%>		
+			<tbody>
+				<td><%=i %>월</td>
+				<td>0</td>
+				<td><%=i+6 %>월</td>
+				<td>0</td>
+			</tbody>	
+			<% } %>
+			
+		</table>
+	</div>
+	<hr> --%>
 	<div class="row" style="margin-top: 50px">
 		<div class="col-md-12">
 			<h3 class="text-muted">나의 공부 기록</h3>
-			<table class="table">
+			<table class="table" style="text-align: center">
 				<thead>
 					<tr>
 						<th>작성일</th>
@@ -158,6 +223,9 @@
 					</tr>
 				</thead>
 				<tbody>
+					<c:forEach items="boardList">
+					
+					</c:forEach>
 					<tr>
 						<td>2022-12-26</td>
 						<td>java 추상클래스</td>

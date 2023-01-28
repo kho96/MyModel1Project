@@ -7,16 +7,16 @@
 <title>스터디 클랜 생성</title>
 </head>
 <%@ include file="/include/boot_cdn.jspf" %>
-<link href="/include/test.css?ver=2" rel="stylesheet" type="text/css">
 <body>
+<%@ include file="/include/header.jspf" %>
 <div class="container-fluid">
-	<div class="row" style="padding: 50px">
+	<!-- <div class="row" style="padding: 50px">
 		<div class="col-md-12">
 			<h3 class="text-center">
 				스터디 클랜 생성
 			</h3>
 		</div>
-	</div>
+	</div> -->
 	<div class="row">
 		<div class="col-md-2">
 		</div>

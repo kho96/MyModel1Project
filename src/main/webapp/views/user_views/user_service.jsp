@@ -14,7 +14,6 @@
 <meta charset="UTF-8">
 <title>고객센터</title>
 <%@ include file="/include/boot_cdn.jspf" %>
-<link href="/include/test.css?ver=2" rel="stylesheet" type="text/css">
 <script>
 $(function() {
 	var q_write_result = "${sessionScope.q_write_result}"; /* 문의작성 결과 */
@@ -56,8 +55,9 @@ $(function() {
 </script>
 </head>
 <body>
+<%@ include file="/include/header.jspf" %>
 <div class="container-fluid">
-	<div class="row" style="padding: 50px">
+	<!-- <div class="row" style="padding: 50px">
 		<div class="col-md-12">
 			<h3 class="text-center">
 				우리들의 공부 이야기
@@ -82,7 +82,7 @@ $(function() {
 				</div>
 			</nav>
 		</div>
-	</div>
+	</div> -->
 	<div class="row" style="margin-top: 15px">
 		<div class="col-md-3"></div>
 		<div class="col-md-6">

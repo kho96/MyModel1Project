@@ -15,7 +15,6 @@
 <title>스터디 레코드</title>
 </head>
 <%@ include file="/include/boot_cdn.jspf" %>
-<link href="/include/test.css?ver=2" rel="stylesheet" type="text/css">
 <c:set var="boardList" value="<%=boardList %>"/>
 <script>
 $(function() {
@@ -28,8 +27,9 @@ $(function() {
 });
 </script>
 <body>
+<%@ include file="/include/header.jspf" %>
 <div class="container-fluid">
-	<div class="row" style="padding: 50px">
+	<!-- <div class="row" style="padding: 50px">
 		<div class="col-md-12">
 			<h3 class="text-center">
 				오늘의 공부
@@ -52,7 +52,7 @@ $(function() {
 				MyHome
 			</a>
 		</div>
-	</div>
+	</div> -->
 	<div class="row">
 		<div class="col-md-3"style="text-align: center; margin-top: 30px">
 			<img alt="배너1" src="/images/card1.jpg"  style="width: 270px; height: 150px"/><br>

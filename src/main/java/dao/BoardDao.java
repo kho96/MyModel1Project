@@ -62,7 +62,8 @@ public class BoardDao {
 		
 		try {
 			conn = getConnection();
-			String sql = "select * from tbl_board";
+			String sql = "select * from tbl_board"
+					+ "	  order by bno desc";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			List<BoardVo> list = new ArrayList<>();
@@ -253,5 +254,38 @@ public class BoardDao {
 			closeAll(conn, pstmt, null);
 		}
 		return false;
+	}
+	
+	// 개인 공부내역
+	public List<BoardVo> getListById(String user_id) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = getConnection();
+			String sql = "select * from tbl_board"
+					+ "	  where user_id = ?"
+					+ "	  order by bno desc";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, user_id);
+			rs = pstmt.executeQuery();
+			List<BoardVo> list = new ArrayList<>();
+			while (rs.next()) {
+				int bno = rs.getInt("bno");
+				String title = rs.getString("title");
+				String content = rs.getString("content");
+				Timestamp regdate = rs.getTimestamp("regdate");
+				int like_count = rs.getInt("like_count");
+				BoardVo vo = new BoardVo(bno, title, content, regdate, user_id, like_count);
+				list.add(vo);
+			}
+			return list;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeAll(conn, pstmt, rs);
+		}
+		return null;
 	}
 }

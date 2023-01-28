@@ -12,6 +12,7 @@
 				</c:when>
 				<c:otherwise>
 					<li><a href="/views/user_views/user_service.jsp">고객센터</a></li>
+					<li><a href="/views/user_views/myhome.jsp">MyPage</a></li>
 					<li><a href="#" onclick="logout();">로그아웃</a>
 				</c:otherwise>
 			</c:choose>

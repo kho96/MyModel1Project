@@ -16,7 +16,6 @@
 <meta charset="UTF-8">
 <title>글 상세 정보</title>
 <%@ include file="/include/boot_cdn.jspf" %>
-<link href="/include/test.css?ver=2" rel="stylesheet" type="text/css">
 <c:set var="boardVo" value="<%=boardVo %>"/>
 <script>
 $(document).ready(function() {
@@ -47,14 +46,15 @@ $(document).ready(function() {
 </script>
 </head>
 <body>
+<%@ include file="/include/header.jspf" %>
 <div class="container-fluid">
-	<div class="row" style="padding: 50px">
+	<!-- <div class="row" style="padding: 50px">
 		<div class="col-md-12">
 			<h3 class="text-center">
 				상세정보
 			</h3>
 		</div>
-	</div>
+	</div> -->
 	<div class="row">
 		<div class="col-md-2">
 		</div>

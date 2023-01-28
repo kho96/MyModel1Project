@@ -28,6 +28,7 @@ $(function() {
 </script>
 </head>
 <body>
+<%@ include file="/include/header.jspf" %>
 <div class="container-fluid">
 	<div class="row" style="padding: 50px">
 		<div class="col-md-12">
