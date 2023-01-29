@@ -8,7 +8,16 @@
 <meta charset="UTF-8">
 <title>로그인 화면</title>
 <%@ include file="/include/boot_cdn.jspf" %>
-
+<%
+	String board_page = request.getParameter("page");
+	int bno = 0;
+	if (request.getParameter("bno") != null) {
+		bno = Integer.parseInt(request.getParameter("bno"));
+	}
+	
+%>
+<c:set var="bno" value="<%=bno %>"/>
+<c:set var="board_page" value="<%=board_page %>"/>
 <script>
 $(function() {
 	// 로그인 결과(실패)
@@ -43,7 +52,17 @@ $(function() {
 				<div class="col-md-3">
 				</div>
 				<div class="col-md-6">
-					<form role="form" id="form_login" action="/views/user_views/main.jsp" method="post">
+					<form role="form" id="form_login" 
+					<c:choose>
+						<c:when test="${board_page eq null}">
+							action="/views/user_views/main.jsp?bno=${bno}"
+						</c:when>
+						<c:otherwise>
+							action="/views/user_views/main.jsp?page=board-write"
+						</c:otherwise>
+					</c:choose>
+					 method="post">
+					
 						<div class="form-group">
 							 
 							<label for="user_id">

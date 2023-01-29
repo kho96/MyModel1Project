@@ -23,7 +23,17 @@ $(function() {
 	$(".study_tr").click(function() {
 		var bno = $(this).attr("data-bno"); // 글 번호 얻기
 		location.href="/views/user_views/study_record_detail.jsp";
-	});	
+	});
+	
+	$("#btn-write").click(function(e) {
+		e.preventDefault();
+		var user_id = "${login_info}";
+		if (user_id == null || user_id == "") {
+			location.href = "/views/start_views/login.jsp?page=board-write";
+			return;
+		}
+		location.href = "/views/user_views/study_record_form.jsp";
+	});
 });
 </script>
 <body>
@@ -54,18 +64,20 @@ $(function() {
 		</div>
 	</div> -->
 	<div class="row">
-		<div class="col-md-3"style="text-align: center; margin-top: 30px">
+		<!-- <div class="col-md-3"style="text-align: center; margin-top: 30px">
 			<img alt="배너1" src="/images/card1.jpg"  style="width: 270px; height: 150px"/><br>
 			<img alt="배너2" src="/images/card1.jpg"  style="width: 270px; height: 150px"/><br>
 			<i>이곳은 배너 광고입니다.</i>
-		</div>
-		<div class="col-md-6">
+		</div> -->
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
 			 
-			<a href="/views/user_views/study_record_form.jsp" class="btn btn-success">
+			<a id="btn-write" href="#" class="btn btn-success" 
+			style="margin: 15px 0px">
 				등록하기
 			</a>
-			<hr>
-			<table class="table table-bordered">
+			
+			<table class="table table-bordered" style="text-align: center">
 				<thead>
 					<tr>
 						<th>#</th>
@@ -93,11 +105,12 @@ $(function() {
 				</tbody>
 			</table>
 		</div>
-		<div class="col-md-3"style="text-align: center; margin-top: 30px">
+		<div class="col-md-2"></div>
+		<!-- <div class="col-md-3"style="text-align: center; margin-top: 30px">
 			<img alt="배너1" src="/images/card1.jpg"  style="width: 270px; height: 150px"/><br>
 			<img alt="배너2" src="/images/card1.jpg"  style="width: 270px; height: 150px"/><br>
 			<i>이곳은 배너 광고입니다.</i>
-		</div>
+		</div> -->
 	</div>
 </div>		
 	<%@ include file="/include/footer.jspf" %>

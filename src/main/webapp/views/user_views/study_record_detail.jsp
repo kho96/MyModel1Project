@@ -20,8 +20,15 @@
 <script>
 $(document).ready(function() {
 	var bno = "${boardVo.bno}";
+	var user_id = "${login_info}";
+	var board_user_id = "${boardVo.user_id}";
 	$("#btnLike").click(function(e) {
 		e.preventDefault();
+		if (user_id == "") {
+			var result = confirm("로그인을 하셔야 이용 가능합니다. \n" + "로그인 페이지로 이동하시겠습니까?");
+			if (result) location.href = "/views/start_views/login.jsp?bno=${boardVo.bno}";
+			return;
+		}
 		sData = { 
 				"command" : "like",
 				"bno" : "${boardVo.bno}",
@@ -34,13 +41,37 @@ $(document).ready(function() {
 	});
 	
 	$("#btnUpdate").click(function() {
-		$(this).fadeOut(500);
-		$("#btnUpdateRun").fadeIn(500);
-		$("#title").attr("disabled", false);
-		$("#content").attr("disabled", false);
-		$("#btnUpdateRun").click(function() {
-			$("#frmUpdate").submit();
-		});
+		if (user_id == "") {
+			var result = confirm("로그인을 하셔야 이용 가능합니다. \n" + "로그인 페이지로 이동하시겠습니까?");
+			if (result) location.href = "/views/start_views/login.jsp?bno=${boardVo.bno}";
+			return;
+		}
+		if (user_id == board_user_id) {
+			$(this).fadeOut(500);
+			$("#btnUpdateRun").fadeIn(500);
+			$("#title").attr("disabled", false);
+			$("#content").attr("disabled", false);
+			$("#btnUpdateRun").click(function() {
+				$("#frmUpdate").submit();
+			});
+		} else {
+			alert("작성자와 정보가 일치하지 않습니다.");
+		}
+	});
+	
+	$("#bnt-del").click(function(e) {
+		e.preventDefault();
+		if (user_id == "") {
+			var result = confirm("로그인을 하셔야 이용 가능합니다. \n" + "로그인 페이지로 이동하시겠습니까?");
+			if (result) location.href = "/views/start_views/login.jsp?bno=${boardVo.bno}";
+			return;
+		}
+		if (user_id == board_user_id) {
+			location.href = "/views/user_views/study_record_run.jsp?bno=${boardVo.bno}&command=delete";
+		} else {
+			alert("작성자와 정보가 일치하지 않습니다.");
+		}
+		
 	});
 });
 </script>
@@ -88,7 +119,7 @@ $(document).ready(function() {
 					수정완료
 				</button>
 				
-				<a href="/views/user_views/study_record_run.jsp?bno=${boardVo.bno}&command=delete" class="btn btn-danger"> 삭제 </a>
+				<a href="#" id="bnt-del" class="btn btn-danger"> 삭제 </a>
 				<a href="#" class="btn btn-success" id="btnLike">
 					응원하기<span class="badge badge-danger">${boardVo.like_count}</span>
 				</a>

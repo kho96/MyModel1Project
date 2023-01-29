@@ -17,7 +17,7 @@
 			</h3>
 		</div>
 	</div> -->
-	<div class="row">
+	<div class="row" style="margin: 20px 0px">
 		<div class="col-md-2">
 		</div>
 		<div class="col-md-8">
@@ -33,7 +33,7 @@
 					<label for="title">
 						제목
 					</label>
-					<input type="text" class="form-control" id="title" name="title"/>
+					<input type="text" class="form-control" id="title" name="title" required/>
 				</div>
 				<div class="form-group">
 					 
@@ -41,7 +41,7 @@
 						내용
 					</label>
 					<textarea rows="7" cols="30" class="form-control"
-						 id="content" name="content"></textarea>
+						 id="content" name="content" required></textarea>
 				</div>
 				<button type="submit" class="btn btn-primary">
 					등록
