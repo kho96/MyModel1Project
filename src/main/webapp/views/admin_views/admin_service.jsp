@@ -60,32 +60,7 @@ $(function() {
 <body>
 <%@ include file="/include/header.jspf" %>
 <div class="container-fluid">
-	<div class="row" style="padding: 50px">
-		<div class="col-md-12">
-			<h3 class="text-center">
-				우리들의 공부 이야기
-			</h3>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-12">
-			<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-dark bg-dark static-top">
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="navbar-nav ml-md-auto">
-						<li class="nav-item active">
-							 <a class="nav-link" href="/views/user_views/user_service.jsp">고객센터 <span class="sr-only">(current)</span></a>
-						</li>						
-						<li class="nav-item">
-							 <a class="nav-link" href="/views/user_views/myhome.jsp">MyHome <span class="sr-only">(current)</span></a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="/views/user_views/main.jsp">로그아웃</a>
-						</li>
-					</ul>
-				</div>
-			</nav>
-		</div>
-	</div>
+	
 	<div class="row" style="margin-top: 15px">
 		<div class="col-md-3"></div>
 		<div class="col-md-6">

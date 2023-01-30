@@ -55,10 +55,10 @@ $(function() {
 					<form role="form" id="form_login" 
 					<c:choose>
 						<c:when test="${board_page eq null}">
-							action="/views/user_views/main.jsp?bno=${bno}"
+							action="/views/start_views/login_run.jsp?bno=${bno}"
 						</c:when>
 						<c:otherwise>
-							action="/views/user_views/main.jsp?page=board-write"
+							action="/views/start_views/login_run.jsp?page=board-write"
 						</c:otherwise>
 					</c:choose>
 					 method="post">
