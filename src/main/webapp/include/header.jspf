@@ -10,6 +10,9 @@
 					<li><a href="/views/start_views/register.jsp">회원가입</a></li>
 					<li><a href="/views/start_views/login.jsp">로그인</a>
 				</c:when>
+				<c:when test='${login_info eq "admin"}'>
+					<li><a href="#" onclick="logout();">관리자 로그아웃</a>
+				</c:when>
 				<c:otherwise>
 					<li><a href="/views/user_views/user_service.jsp">고객센터</a></li>
 					<li><a href="/views/user_views/myhome.jsp">MyPage</a></li>
