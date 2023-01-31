@@ -203,35 +203,55 @@ public class BoardDao {
 		return false;
 	}
 	
-	// 좋아요 중복처리
-	public int update_like(BoardVo boardVo) {
+	// 좋아요 체크
+	public boolean checkLike(BoardVo boardVo) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		int result = 0;
+		ResultSet rs = null;
+		
 		try {
 			conn = getConnection();
-			String sql = "update tbl_board";
-			System.out.println("좋아요 갯수 : " + boardVo.getLike_count());
-			if (boardVo.getLike_count() == 0) {
-				sql += "  set like_count = like_count + 1";
-				result = 1; // true = 좋아요 증가
-			} else {
-				sql += "  set like_count = like_count - 1";
-				result = 2; // false = 좋아요 감소
-			}
-			sql += "	  where bno = ?"
-					+ "   and user_id = ?";
+			String sql = "select * from tbl_like"
+					+ "   where bno = ? and user_id = ?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, boardVo.getBno());
 			pstmt.setString(2, boardVo.getUser_id());
-			int count = pstmt.executeUpdate();
-			if (count > 0) return result;
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				return true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeAll(conn, pstmt, rs);
+		}
+		return false;
+	}
+	
+	
+	// 좋아요 업데이트
+	public void update_like(BoardVo boardVo, boolean isLike) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			conn = getConnection();
+			String sql = "update tbl_board";
+			if (isLike) {
+				sql += "  set like_count = ?"; // true(중복) = 좋아요 감소
+			} else {
+				sql += "  set like_count = ?"; // false(중복x) = 좋아요 증가
+			}
+			sql += "	  where bno = ?";
+			pstmt = conn.prepareStatement(sql);
+			if (isLike) pstmt.setInt(1, boardVo.getLike_count()-1);
+			else pstmt.setInt(1, boardVo.getLike_count()+1);
+			pstmt.setInt(2, boardVo.getBno());
+			pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			closeAll(conn, pstmt, null);
 		}
-		return result;
 	}
 	
 	// 좋아요 삭제
