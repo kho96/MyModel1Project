@@ -16,7 +16,8 @@
 		<div class=inner>
 			<h1>OUR.STUDY.STORY</h1>
 			<p>당신의 자기개발을 저희가 함께하겠습니다. 당신의 기록을 이곳에 남기세요! <br>
-			어떤 곳인지 잘 모르시겠다고요? 그럼 저희 홈페이지를 둘러보세요!!</p>
+			어떤 곳인지 잘 모르시겠다고요? 그럼 저희 홈페이지를 둘러보세요!!<br>
+			</p>
 			<a href="/views/user_views/main.jsp">둘러보기</a>
 		</div>
 	</figure>
