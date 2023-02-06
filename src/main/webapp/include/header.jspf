@@ -21,6 +21,8 @@
 				</c:otherwise>
 			</c:choose>
 			</li>
+			<!-- 모바일용 메뉴  -->
+			<li id="menu"><a href="">Menu</a></li>
 		</ul>
 	</div>
 </header>
