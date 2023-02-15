@@ -7,22 +7,51 @@
 		<ul id="gnb">
 			<c:choose>
 				<c:when test="${login_info eq null}">
-					<li><a href="/views/start_views/register.jsp">회원가입</a></li>
-					<li><a href="/views/start_views/login.jsp">로그인</a>
+					<li class="desktop"><a href="/views/start_views/register.jsp">회원가입</a></li>
+					<li class="desktop"><a href="/views/start_views/login.jsp">로그인</a>
 				</c:when>
 				<c:when test='${login_info eq "admin"}'>
-					<li><a href="#" onclick="logout();">관리자 로그아웃</a>
+					<li class="desktop"><a href="#" onclick="logout();">관리자 로그아웃</a>
 				</c:when>
 				<c:otherwise>
-					<li><a href="/views/user_views/main.jsp">Main</a></li>
-					<li><a href="/views/user_views/user_service.jsp">고객센터</a></li>
-					<li><a href="/views/user_views/myhome.jsp">MyPage</a></li>
-					<li><a href="#" onclick="logout();">로그아웃</a>
+					<li class="desktop"><a href="/views/user_views/main.jsp">Main</a></li>
+					<li class="desktop"><a href="/views/user_views/user_service.jsp">고객센터</a></li>
+					<li class="desktop"><a href="/views/user_views/myhome.jsp">MyPage</a></li>
+					<li class="desktop"><a href="#" onclick="logout();">로그아웃</a>
 				</c:otherwise>
 			</c:choose>
 			</li>
 			<!-- 모바일용 메뉴  -->
-			<li id="menu"><a href="">Menu</a></li>
+			<li class="mobile">
+				<a id="menu" class="menu" href="#">Menu</a>
+				<div id="menu-items" class="items">
+					<a href="#">항목1</a>
+					<a href="#">항목2</a>
+					<a href="#">항목3</a>
+				</div>
+			</li>
 		</ul>
 	</div>
 </header>
+<script>
+	const menu = document.getElementById("menu");
+	menu.addEventListener("click", (e) => {
+		e.preventDefault();
+		document.getElementById("menu-items").classList.toggle("show");
+		console.log("클릭");
+	})
+	
+	window.onclick = function(event) {
+	  if (!event.target.matches('.menu')) {
+	
+	    var dropdowns = document.getElementsByClassName("menu-items");
+	    var i;
+	    for (i = 0; i < dropdowns.length; i++) {
+	      var openDropdown = dropdowns[i];
+	      if (openDropdown.classList.contains('show')) {
+	        openDropdown.classList.remove('show');
+	      }
+	    }
+	  }
+	}
+</script>

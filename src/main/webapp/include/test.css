@@ -61,6 +61,10 @@ header .inner #gnb {
 	right: 0px;
 }
 
+header .inner #gnb .mobile {
+	display: none;
+} 
+
 header .inner #gnb li {
 	float: left;
 }
@@ -77,6 +81,8 @@ header .inner #gnb li a:hover {
 	background: #555;
 	color: #fff;
 }
+
+
 
 
 
@@ -312,19 +318,48 @@ footer .inner .lower p {
 	
 	header .inner #gnb li {
 		float: left;
+	}
+	
+	header .inner #gnb .desktop {
 		display: none;
 	}
 	
-	header .inner #gnb #menu {
-		float: left;
+	header .inner #gnb .mobile {
+		position: relative;
+    	display: inline-block;
+	}
+	
+	/* menu items */
+	header .inner #gnb .mobile .items {
+		display: none;
+	    position: absolute;
+	    background-color: #f9f9f9;
+	    min-width: 160px;
+	    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	}
+	
+	header .inner #gnb .mobile .items a {
+		display: block; /* 인라인 요소는 block을 설정하여 크기 조절 가능 */
+		font: bold 12px/1 "arial";
+		color: #555;
+		padding: 20px 30px;
+		transition: all 0.5s;
+	}
+	
+	.show {
 		display: block;
+	}
+	
+	header .inner #gnb .mobile .items a:hover {
+		background: #555;
+		color: #fff;
 	}
 	
 	header .inner #gnb li a {
 		display: block; /* 인라인 요소는 block을 설정하여 크기 조절 가능 */
 		font: bold 12px/1 "arial";
 		color: #555;
-		padding: 20px 40px;
+		padding: 20px 30px;
 		transition: all 0.5s;
 	}
 	
