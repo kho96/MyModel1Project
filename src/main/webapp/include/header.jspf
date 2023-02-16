@@ -24,34 +24,15 @@
 			<!-- 모바일용 메뉴  -->
 			<li class="mobile">
 				<a id="menu" class="menu" href="#">Menu</a>
-				<div id="menu-items" class="items">
-					<a href="#">항목1</a>
-					<a href="#">항목2</a>
-					<a href="#">항목3</a>
-				</div>
+				<ul class="menu-items">
+					<li><a href="#">항목 1</a></li>
+					<li><a href="#">항목 2</a></li>
+					<li><a href="#">항목 3</a></li>
+				</ul>
 			</li>
 		</ul>
 	</div>
 </header>
 <script>
-	const menu = document.getElementById("menu");
-	menu.addEventListener("click", (e) => {
-		e.preventDefault();
-		document.getElementById("menu-items").classList.toggle("show");
-		console.log("클릭");
-	})
 	
-	window.onclick = function(event) {
-	  if (!event.target.matches('.menu')) {
-	
-	    var dropdowns = document.getElementsByClassName("menu-items");
-	    var i;
-	    for (i = 0; i < dropdowns.length; i++) {
-	      var openDropdown = dropdowns[i];
-	      if (openDropdown.classList.contains('show')) {
-	        openDropdown.classList.remove('show');
-	      }
-	    }
-	  }
-	}
 </script>

@@ -310,6 +310,12 @@ footer .inner .lower p {
 		color: #444;
 	}
 	
+	header .inner #gnb .desktop {
+		display: none;
+	}
+	
+	
+	
 	header .inner #gnb {
 		position: absolute;
 		bottom: 5px;
@@ -320,39 +326,17 @@ footer .inner .lower p {
 		float: left;
 	}
 	
-	header .inner #gnb .desktop {
-		display: none;
-	}
-	
 	header .inner #gnb .mobile {
-		position: relative;
+		position: static;
     	display: inline-block;
 	}
 	
-	/* menu items */
-	header .inner #gnb .mobile .items {
-		display: none;
-	    position: absolute;
-	    background-color: #f9f9f9;
-	    min-width: 160px;
-	    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	header .inner #gnb .mobile .menu-items {
+		position: absolute;
 	}
 	
-	header .inner #gnb .mobile .items a {
-		display: block; /* 인라인 요소는 block을 설정하여 크기 조절 가능 */
-		font: bold 12px/1 "arial";
-		color: #555;
-		padding: 20px 30px;
-		transition: all 0.5s;
-	}
-	
-	.show {
-		display: block;
-	}
-	
-	header .inner #gnb .mobile .items a:hover {
-		background: #555;
-		color: #fff;
+	header .inner #gnb .mobile .menu-items li{
+		float: none;
 	}
 	
 	header .inner #gnb li a {
