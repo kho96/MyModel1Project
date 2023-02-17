@@ -332,7 +332,9 @@ footer .inner .lower p {
 	}
 	
 	header .inner #gnb .mobile .menu-items {
+		display: none;
 		position: absolute;
+		z-index: 1;
 	}
 	
 	header .inner #gnb .mobile .menu-items li{
@@ -345,6 +347,15 @@ footer .inner .lower p {
 		color: #555;
 		padding: 20px 30px;
 		transition: all 0.5s;
+	}
+	
+	header .inner #gnb li .menu-items li a {
+		display: block; /* 인라인 요소는 block을 설정하여 크기 조절 가능 */
+		font: bold 11px/1 "arial";
+		color: #555;
+		padding: 20px 30px;
+		transition: all 0.5s;
+		background-color: #f1f1f1;
 	}
 	
 	

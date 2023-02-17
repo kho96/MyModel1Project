@@ -34,5 +34,19 @@
 	</div>
 </header>
 <script>
-	
+$(function() {
+	let menuVisible = false;
+	$(window).click(function(e) {
+		
+	});
+	$("#menu").click(function() {
+		if(!menuVisible) {
+			menuVisible = true;
+			$(".menu-items").slideDown(500);
+		} else {
+			menuVisible = false;
+			$(".menu-items").slideUp(500);
+		}
+	});
+})
 </script>

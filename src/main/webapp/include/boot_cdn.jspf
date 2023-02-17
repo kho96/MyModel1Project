@@ -5,7 +5,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/include/myscript.js"></script>
 <link href="/include/boot_cdn.jspf" rel="stylesheet" type="text/css"> 
-<link href="/include/test.css?ver=1.67" rel="stylesheet" type="text/css"> 
+<link href="/include/test.css?ver=1.17" rel="stylesheet" type="text/css"> 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
