@@ -12,6 +12,18 @@
 	<%@ include file="/include/header.jspf" %>
 	
 	<div class="wrapper"><!-- wrapper  -->
+	<figure class="desktop">
+		<video src="/video/Pexels Videos 1448735.mp4" autoplay muted loop></video>
+		<div class=inner>
+			<h1>OUR.STUDY.STORY</h1>
+			<p>당신의 자기개발을 저희가 함께하겠습니다. 당신의 기록을 이곳에 남기세요! <br>
+			어떤 곳인지 잘 모르시겠다고요? 그럼 저희 홈페이지를 둘러보세요!!<br>
+			</p>
+			<a href="/views/user_views/main.jsp">둘러보기</a>
+		</div>
+	</figure>
+	
+	<!-- mobile -->
 	<figure>
 		<video src="/video/Pexels Videos 1448735.mp4" autoplay muted loop></video>
 		<div class=inner>
@@ -25,7 +37,7 @@
 	
 	<!-- section -->
 	<section>
-		<div class="inner">
+		<div class="inner desktop">
 			<h1>How To Use..</h1>
 			<div class="wrap">
 				<article>

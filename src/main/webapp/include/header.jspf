@@ -25,9 +25,22 @@
 			<li class="mobile">
 				<a id="menu" class="menu" href="#">Menu</a>
 				<ul class="menu-items">
-					<li><a href="#">항목 1</a></li>
-					<li><a href="#">항목 2</a></li>
-					<li><a href="#">항목 3</a></li>
+					<c:choose>
+						<c:when test="${login_info eq null}">
+							<li><a href="/views/start_views/register.jsp">회원가입</a></li>
+							<li><a href="/views/start_views/login.jsp">로그인</a>
+						</c:when>
+						<c:when test='${login_info eq "admin"}'>
+							<li><a href="#" onclick="logout();">관리자 로그아웃</a>
+						</c:when>
+						<c:otherwise>
+							<li><a href="/views/user_views/main.jsp">Main</a></li>
+							<li><a href="/views/user_views/user_service.jsp">고객센터</a></li>
+							<li><a href="/views/user_views/myhome.jsp">MyPage</a></li>
+							<li><a href="#" onclick="logout();">로그아웃</a>
+						</c:otherwise>
+					</c:choose>
+					</li>
 				</ul>
 			</li>
 		</ul>
@@ -36,17 +49,21 @@
 <script>
 $(function() {
 	let menuVisible = false;
+	var menu = $("#menu");
 	$(window).click(function(e) {
-		
+		e.target.className == "menu" ? null : closeMenu(); 
 	});
 	$("#menu").click(function() {
 		if(!menuVisible) {
 			menuVisible = true;
 			$(".menu-items").slideDown(500);
 		} else {
-			menuVisible = false;
-			$(".menu-items").slideUp(500);
+			closeMenu();
 		}
 	});
+	function closeMenu() {
+		menuVisible = false;
+		$(".menu-items").slideUp(500);
+	}
 })
 </script>

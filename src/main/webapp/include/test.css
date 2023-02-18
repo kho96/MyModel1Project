@@ -351,7 +351,7 @@ footer .inner .lower p {
 	
 	header .inner #gnb li .menu-items li a {
 		display: block; /* 인라인 요소는 block을 설정하여 크기 조절 가능 */
-		font: bold 11px/1 "arial";
+		font: bold 12px/1 "arial";
 		color: #555;
 		padding: 20px 30px;
 		transition: all 0.5s;
@@ -364,9 +364,13 @@ footer .inner .lower p {
 		color: #fff;
 	}
 	
+	.desktop {
+		display: none;
+	}
+	
 	figure {
 	width: 100%;
-	height: 100vh; /* 전체 브라우저 높이에서 120px만큼 뺴기 */
+	height: 10vh; /* 전체 브라우저 높이에서 120px만큼 뺴기 */
 	background: #000;
 	position: relative;
 	overflow: hidden;
@@ -386,7 +390,8 @@ footer .inner .lower p {
 	figure .inner {
 		width: 100%;
 		margin: 0px auto;
-		position: relative;
+		top: 0%;
+		position: absolute;
 		text-align: center;
 	}
 	
