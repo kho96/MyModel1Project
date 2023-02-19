@@ -24,12 +24,13 @@
 	</figure>
 	
 	<!-- mobile -->
-	<figure>
+	<figure class="mobile">
 		<video src="/video/Pexels Videos 1448735.mp4" autoplay muted loop></video>
 		<div class=inner>
 			<h1>OUR.STUDY.STORY</h1>
-			<p>당신의 자기개발을 저희가 함께하겠습니다. 당신의 기록을 이곳에 남기세요! <br>
-			어떤 곳인지 잘 모르시겠다고요? 그럼 저희 홈페이지를 둘러보세요!!<br>
+			<p>당신의 자기개발을 저희가 함께하겠습니다.<br>당신의 기록을 이곳에 남기세요! <br></p>
+			<p>
+			어떤 곳인지 잘 모르시겠다고요?<br> 그럼 저희 홈페이지를 둘러보세요!!<br>
 			</p>
 			<a href="/views/user_views/main.jsp">둘러보기</a>
 		</div>
@@ -68,6 +69,9 @@
 					<h2><a id="none_a" href="#">모임을 만들어요.(준비중..)</a></h2>
 					<p>공통된 학습모델을 가지고 사람들과<br>온/오프라인으로 같이 학습합니다.</p>
 				</article>
+			</div>
+			<div class="inner mobile">
+				
 			</div>
 		</div>
 	</section>  

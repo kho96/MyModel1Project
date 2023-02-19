@@ -149,7 +149,7 @@ figure .inner a:hover {
 /* section */
 section {
 	width: 100%;
-	padding: 200px 0px;
+	padding: 30px 0px;
 }
 
 section .inner {
@@ -225,7 +225,7 @@ section .inner .wrap article .pic img {
 footer {
 	width: 100%;
 	background: #333;
-	padding: 100px 0px;
+	padding: 50px 0px;
 	border-top: 1px solid #888;
 	
 }
@@ -285,9 +285,15 @@ footer .inner .lower p {
 	color: #777;
 }
 
+.mobile {
+	display: none;
+}
+
 /* 모바일 header  */
 @media (max-width: 768px) {
-	
+	.mobile {
+		display: block;
+	}
 	header {
 		width: 100%;
 		border-bottom: 1px solid #ddd;
@@ -396,15 +402,16 @@ footer .inner .lower p {
 	}
 	
 	figure .inner h1 {
-		font: normal 120px/1 "arial";
+		font: 33px/1 "arial";
 		color: #fff;
 		margin-bottom: 30px;
+		margin-top: 25px;
 	}
 	
 	figure .inner p {
 		font: 16px/1.4 "arial";
 		color: #888;
-		margin-bottom: 60px;
+		margin-bottom: 10px;
 		margin-top: 10px;
 	}
 	
@@ -413,7 +420,7 @@ footer .inner .lower p {
 		width: 300px;
 		height: 30px;
 		border: 1px solid #bbb;
-		font: bold 11px/30px "arial";
+		font: bold 18px/30px "arial";
 		color: #fff;
 		text-align: center;
 		letter-spacing: 1px; 
