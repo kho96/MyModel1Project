@@ -7,6 +7,35 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>메인 화면</title>
 <%@ include file="/include/boot_cdn.jspf" %>
+<script>
+$(document).ready(function(){
+	  $('.slide-container').slick({
+	    dots: false, // 점 네비게이션 표시
+	    infinite: true, // 무한 반복 옵션
+	    slidesToShow: 1, // 한 화면에 보여줄 이미지 개수
+	    slidesToScroll: 1, // 스크롤 한번에 움직일 이미지 개수
+	    autoplay: true, // 자동 스크롤 사용 여부
+	    autoplaySpeed: 3000, // 자동 스크롤 시간 간격 (ms)
+	    arrows: false, // 좌우 화살표 사용 여부
+	    prevArrow: '<button type="button" class="slick-prev">Previous</button>',
+	    nextArrow: '<button type="button" class="slick-next">Next</button>',
+	    responsive: [
+	      {
+	        breakpoint: 768, // 화면 사이즈 768px
+	        settings: {
+	          slidesToShow: 1 // 한 화면에 보여줄 이미지 개수
+	        }
+	      },
+	      {
+	        breakpoint: 480, // 화면 사이즈 480px
+	        settings: {
+	          slidesToShow: 1 // 한 화면에 보여줄 이미지 개수
+	        }
+	      }
+	    ]
+	  });
+	});
+</script>
 </head>
 <body>
 	<%@ include file="/include/header.jspf" %>
@@ -70,7 +99,21 @@
 					<p>공통된 학습모델을 가지고 사람들과<br>온/오프라인으로 같이 학습합니다.</p>
 				</article>
 			</div>
-			<div class="inner mobile">
+		</div>
+		<div class="inner mobile">
+			<div class="slide-container">
+				<div class="slide-box">
+					<img src="/images/card1.jpg" alt="1번쨰 콘텐츠 이미지">
+				</div>
+				<div class="slide-box">
+					<img src="/images/card2.jpg" alt="2번쨰 콘텐츠 이미지">
+				</div>
+				<div class="slide-box">
+					<img src="/images/card3.jpg" alt="3번쨰 콘텐츠 이미지">
+				</div>
+				<div class="slide-box">
+					<img src="/images/card4.jpg" alt="4번쨰 콘텐츠 이미지">
+				</div>
 				
 			</div>
 		</div>
