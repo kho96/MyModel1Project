@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>회원가입 화면</title>
 <%@ include file="/include/boot_cdn.jspf" %>
 <script>
@@ -61,7 +62,7 @@ $(function() {
 	<div class="row" style="background-color: gray; padding: 50px">
 		<div class="col-md-12">
 			<h3 class="text-center">
-				회원가입 화면 입니다.
+				회원가입 화면
 			</h3>
 		</div>
 	</div>
@@ -78,12 +79,16 @@ $(function() {
 							<label for="user_id">
 								아이디
 							</label>
-							<div class="row">
+							<div class="mobile">
+								<input type="text" class="form-control" id="user_id" name="user_id" required />
+								<button id="btn_idCheck" type="button" class="mobile btn btn-warning" >중복확인</button>
+							</div>
+							<div class="row desktop">
 								<div class="col-md-9">
-									<input type="text" class="form-control" id="user_id" name="user_id" required >
+									<input type="text" class="form-control" id="user_id" name="user_id" required />
 								</div>
 								<div class="col-md-3">
-									<button id="btn_idCheck" type="button" class="btn btn-warning ml-4" >중복확인</button>
+									<button id="btn_idCheck" type="button" class="desktop btn btn-warning ml-4" >중복확인</button>
 								</div>	
 							</div>
 						</div>

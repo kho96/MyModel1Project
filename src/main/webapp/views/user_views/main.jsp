@@ -12,6 +12,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>첫 화면</title>
 <style>
 .container-fluid {
@@ -37,7 +38,7 @@
 				<div style="float: left"><b>공부 기록</b></div>
 				<div style="float: right;"><a class="btn btn-primary" href="study_record.jsp" style="margin-left: 50px">더보기</a></div>
 			</div>
-			<table class="table table-sm table-hover table-striped" style="text-align: center">
+			<table class="table main-tbl table-sm table-hover table-striped" style="text-align: center">
 				<thead>
 					<tr>
 						<th>#</th>
