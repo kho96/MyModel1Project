@@ -38,7 +38,7 @@
 				<div style="float: left"><b>공부 기록</b></div>
 				<div style="float: right;"><a class="btn btn-primary" href="study_record.jsp" style="margin-left: 50px">더보기</a></div>
 			</div>
-			<table class="table main-tbl table-sm table-hover table-striped" style="text-align: center">
+			<table class="table desktop main-table table-sm table-hover table-striped" style="text-align: center">
 				<thead>
 					<tr>
 						<th>#</th>
@@ -58,6 +58,26 @@
 						<td>${boardList.regdate}</td>
 						<td>${boardList.user_id}</td>
 						<td>${boardList.like_count}</td>
+					</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+			
+			<!-- mobile -->
+			<table class="table mobile main-table table-sm table-hover table-striped" style="text-align: center">
+				<thead>
+					<tr>
+						<th>제목</th>
+						<th>등록일</th>
+						<th>아이디</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items="<%=boardList %>" var="boardList">
+					<tr>
+						<td>${boardList.title}</td>
+						<td>${boardList.regdate}</td>
+						<td>${boardList.user_id}</td>
 					</tr>
 					</c:forEach>
 				</tbody>

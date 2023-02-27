@@ -521,4 +521,12 @@ footer .inner .lower p {
 	.main-table thead th {
 		vertical-align: middle;
 	}
+	
+	.mobile, .main-table tbody tr td {
+		vertical-align: middle;
+	}
+	
+	.container-fluid {
+		padding-bottom: 0px;
+	}
 }
