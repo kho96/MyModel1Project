@@ -44,7 +44,7 @@ $(function() {
 				alert("중복 확인을 해주세요.");
 				return false;
 			}
-		}
+	}
 	});
 	
 	// 가입 실패 
@@ -75,21 +75,10 @@ $(function() {
 				<div class="col-md-6">
 					<form role="form" action="/views/start_views/regist_run.jsp" method="post">
 						<div class="form-group">
-							 
-							<label for="user_id">
-								아이디
-							</label>
-							<div class="mobile">
-								<input type="text" class="form-control" id="user_id" name="user_id" required />
-								<button id="btn_idCheck" type="button" class="mobile btn btn-warning" >중복확인</button>
-							</div>
-							<div class="row desktop">
-								<div class="col-md-9">
-									<input type="text" class="form-control" id="user_id" name="user_id" required />
-								</div>
-								<div class="col-md-3">
-									<button id="btn_idCheck" type="button" class="desktop btn btn-warning ml-4" >중복확인</button>
-								</div>	
+							<label for="user_id">아이디</label>
+							<div class="input-container">
+							    <input type="text" class="form-control" id="user_id" name="user_id" required />
+							    <button id="btn_idCheck" type="button" class="btn btn-warning">중복확인</button>
 							</div>
 						</div>
 						<div class="form-group">
