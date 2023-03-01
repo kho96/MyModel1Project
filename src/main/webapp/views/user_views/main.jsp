@@ -69,13 +69,22 @@
 					<tr>
 						<th>제목</th>
 						<th>등록일</th>
-						<th>아이디</th>
+						<th>id</th>
 					</tr>
 				</thead>
 				<tbody>
 					<c:forEach items="<%=boardList %>" var="boardList">
 					<tr>
-						<td>${boardList.title}</td>
+						<td>
+							<c:choose>
+								<c:when test="${fn:length(boardList.title)>=14}">
+									${fn:substring(boardList.title, 0, 12)}...
+								</c:when>
+								<c:otherwise>
+									${boardList.title }
+								</c:otherwise>
+							</c:choose>
+						</td>
 						<td>${boardList.regdate}</td>
 						<td>${boardList.user_id}</td>
 					</tr>

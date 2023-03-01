@@ -91,7 +91,16 @@ $(function() {
 					<tr>
 						<td>
 							<a href="/views/user_views/study_record_detail.jsp?bno=${boardList.bno}">
-							${boardList.title}</a>
+								<c:choose>
+									<c:when test="${fn:length(boardList.title)>=14}">
+										${fn:substring(boardList.title, 0, 12)}...
+									</c:when>
+									<c:otherwise>
+										${boardList.title }
+									</c:otherwise>
+								</c:choose>
+							</a>
+							
 						</td>
 						<td>${boardList.regdate}</td>
 						<td>${boardList.user_id}</td>
